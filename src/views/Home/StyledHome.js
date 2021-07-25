@@ -12,4 +12,8 @@ export const StyledInner = styled.div`
   position: fixed;
   top: 50%;
   left: 10%;
+
+  &:first-child h3 {
+    margin: 0 0 -1.5rem 0.4rem;
+  }
 `;
