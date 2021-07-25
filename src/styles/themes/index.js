@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 const mainTheme = {
   colors: {
     white: '#FAFAFA',
@@ -5,6 +7,7 @@ const mainTheme = {
     blue: '#185ADB',
     yellow: '#FFC947',
     grey: '#EFEFEF',
+    darkGrey: '#444444',
   },
 
   fontSizes: {
@@ -19,6 +22,12 @@ const mainTheme = {
     normal: 400,
     semiBold: 600,
     bold: 700,
+  },
+
+  mixins: {
+    view: css`
+      height: 100vh;
+    `,
   },
 };
 

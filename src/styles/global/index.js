@@ -11,6 +11,11 @@ const GlobalStyle = styled.createGlobalStyle`
     font-size: 62.5%;
   }
 
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
   body {
     font-family: 'Khula', sans-serif;
   }
