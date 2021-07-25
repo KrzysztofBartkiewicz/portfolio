@@ -28,6 +28,7 @@ const GlobalStyle = styled.createGlobalStyle`
 
   button {
     cursor: pointer;
+    font-weight: inherit;
   }
 
   ul {
@@ -36,6 +37,7 @@ const GlobalStyle = styled.createGlobalStyle`
 
   a {
     text-decoration: none;
+    cursor: pointer;
   }
 `;
 

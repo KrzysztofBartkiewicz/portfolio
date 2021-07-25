@@ -53,8 +53,6 @@ const App = () => {
     }
   };
 
-  // useEffect(() => console.log(activeSection ? activeSection.id : null));
-
   return (
     <>
       <div ref={appRef}>

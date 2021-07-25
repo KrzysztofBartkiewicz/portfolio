@@ -33,6 +33,7 @@ export const StyledDot = styled.button`
     transform: translateY(-45%);
     transition: opacity 1s;
     font-size: ${({ theme }) => theme.fontSizes.l};
+    pointer-events: none;
 
     ${({ active }) =>
       active &&

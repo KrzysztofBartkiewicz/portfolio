@@ -1,7 +1,16 @@
 import React from 'react';
 import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
-import { StyledHome, StyledInner } from './StyledHome';
+import Button from '../../components/Button';
+import Link from '../../components/Link';
+import { buttonTypes } from '../../helpers';
+import {
+  StyledBottomWrapper,
+  StyledHome,
+  StyledInner,
+  StyledContactLinks,
+  StyledSectionLinks,
+} from './StyledHome';
 
 const Home = ({ id }) => {
   const homeId = 'home';
@@ -20,6 +29,16 @@ const Home = ({ id }) => {
           </AnimatedText>
         </Heading>
       </StyledInner>
+      <StyledBottomWrapper>
+        <StyledSectionLinks>
+          <Button buttonType={buttonTypes.text}>Projects</Button>
+          <Button buttonType={buttonTypes.text}>Contact</Button>
+        </StyledSectionLinks>
+        <StyledContactLinks>
+          <Link>bartkiewicz.krzysztof84@gmail.com</Link>
+          <Link>+48 796 459 623</Link>
+        </StyledContactLinks>
+      </StyledBottomWrapper>
     </StyledHome>
   );
 };
