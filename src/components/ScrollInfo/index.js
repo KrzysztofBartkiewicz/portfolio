@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { StyledScrollIcon, StyledScrollInfo } from './StyledScrollInfo';
 
-const ScrollInfo = ({ isVisible }) => {
+const ScrollInfo = () => {
   const wheellRef = useRef(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ScrollInfo = ({ isVisible }) => {
   }, []);
 
   return (
-    <StyledScrollInfo isVisible={isVisible}>
+    <StyledScrollInfo>
       <StyledScrollIcon>
         <span ref={wheellRef}></span>
       </StyledScrollIcon>

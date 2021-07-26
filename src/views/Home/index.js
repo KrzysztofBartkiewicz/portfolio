@@ -61,7 +61,7 @@ const Home = ({ id }) => {
   return (
     <StyledHome id={homeId}>
       {renderInnerWrapper()}
-
+      <ScrollInfo />
       {renderBottomWrapper()}
     </StyledHome>
   );

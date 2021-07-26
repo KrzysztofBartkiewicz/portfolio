@@ -3,17 +3,13 @@ import AppContext from '../context/AppContext';
 import Contact from '../views/Contact';
 import Home from '../views/Home';
 import Projects from '../views/Projects';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import Pagination from '../components/Pagination';
-import ScrollInfo from '../components/ScrollInfo';
+import gsap from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import _ from 'lodash';
 import { sectionTypes } from '../helpers';
 
-gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
-
-ScrollTrigger.config({ limitCallbacks: true });
 
 const App = () => {
   const appRef = useRef(null);
@@ -21,38 +17,54 @@ const App = () => {
   const scrollAnim = useRef(null);
 
   const [activeSection, setActiveSection] = useState(null);
+  const [position, setPosition] = useState(0);
+
+  const handleScroll = (e) => {
+    const delta = Math.sign(e.deltaY);
+
+    setPosition((prev) => {
+      if (prev + delta >= 0 && prev + delta <= 2) {
+        return prev + delta;
+      }
+      return prev;
+    });
+  };
+
+  useEffect(() => {
+    if (sections.current) {
+      const section = [...sections.current][position];
+      setActiveSection(section);
+    }
+  }, [position]);
 
   useEffect(() => {
     const app = appRef.current;
     sections.current = app.children;
 
-    [...sections.current].forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        end: 'bottom top+=1',
-        onEnter: () => setActiveSection(section),
-        onEnterBack: () => setActiveSection(section),
-      });
-    });
+    window.addEventListener('wheel', _.debounce(handleScroll, 500));
   }, []);
 
   useEffect(() => {
-    scrollAnim.current = gsap.to(window, {
+    scrollAnim.current = gsap.timeline();
+    scrollAnim.current.to(window, {
       scrollTo: { y: activeSection, autoKill: false },
       duration: 1,
-      onComplete: () => {
-        ScrollTrigger.getAll().forEach((st) => st.enable());
-      },
     });
   }, [activeSection]);
 
   const handleGoToPage = (id) => {
     if (!scrollAnim.current.isActive()) {
-      const node = Array.from(sections.current).find(
-        (section) => section.id === id
-      );
-      setActiveSection(node);
-      ScrollTrigger.getAll().forEach((st) => st.disable());
+      setPosition((prev) => {
+        switch (id) {
+          case sectionTypes.projects:
+            return 1;
+          case sectionTypes.contact:
+            return 2;
+
+          default:
+            return 0;
+        }
+      });
     }
   };
 
@@ -70,11 +82,6 @@ const App = () => {
       <Pagination
         onClickFn={handleGoToPage}
         id={activeSection ? activeSection.id : null}
-      />
-      <ScrollInfo
-        isVisible={
-          activeSection ? activeSection.id === sectionTypes.home : null
-        }
       />
     </AppContext.Provider>
   );

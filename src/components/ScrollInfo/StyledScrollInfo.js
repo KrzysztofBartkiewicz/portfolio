@@ -1,25 +1,17 @@
 import styled, { css } from 'styled-components';
 
 export const StyledScrollInfo = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 30%;
   left: 15%;
   display: flex;
   align-items: center;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s;
 
   p {
     font-size: ${({ theme }) => theme.fontSizes.l};
     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
   }
-
-  ${({ isVisible }) =>
-    isVisible &&
-    css`
-      opacity: 1;
-    `}
 `;
 
 export const StyledScrollIcon = styled.div`
