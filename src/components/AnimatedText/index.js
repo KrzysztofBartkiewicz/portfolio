@@ -9,7 +9,7 @@ const AnimatedText = ({ children, slideUp, slideDown }) => {
     const text = textRef.current;
 
     if (slideUp) {
-      gsap.fromTo(text, { y: 0 }, { y: -text.offsetHeight, duration: 0.5 });
+      gsap.fromTo(text, { y: 0 }, { y: -text.offsetHeight - 3, duration: 0.5 });
     }
     if (slideDown) {
       gsap.fromTo(

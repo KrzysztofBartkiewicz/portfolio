@@ -3,11 +3,7 @@ import Heading from '../../components/Heading';
 import { StyledProjects } from './StyledProjects';
 
 const Projects = () => {
-  return (
-    <StyledProjects id="projects">
-      <Heading headingType="h1">Hello</Heading>
-    </StyledProjects>
-  );
+  return <StyledProjects id="projects"></StyledProjects>;
 };
 
 export default Projects;
