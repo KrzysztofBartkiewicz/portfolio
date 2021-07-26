@@ -12,49 +12,57 @@ import {
   StyledContactLinks,
   StyledSectionLinks,
 } from './StyledHome';
+import ScrollInfo from '../../components/ScrollInfo';
 
 const Home = ({ id }) => {
   const { handleGoToPage } = useContext(AppContext);
   const homeId = sectionTypes.home;
 
+  const renderInnerWrapper = () => (
+    <StyledInner>
+      <Heading>
+        <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
+          Hi there, I'm
+        </AnimatedText>
+      </Heading>
+      <Heading headingType="h1">
+        <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
+          Krzysztof Bartkiewicz
+        </AnimatedText>
+      </Heading>
+    </StyledInner>
+  );
+
+  const renderBottomWrapper = () => (
+    <StyledBottomWrapper>
+      <StyledSectionLinks>
+        <Button
+          buttonType={buttonTypes.text}
+          onClickFn={() => handleGoToPage(sectionTypes.projects)}
+        >
+          Projects
+        </Button>
+        <Button
+          buttonType={buttonTypes.text}
+          onClickFn={() => handleGoToPage(sectionTypes.contact)}
+        >
+          Contact
+        </Button>
+      </StyledSectionLinks>
+      <StyledContactLinks>
+        <Link href={`mailto:${contactData.email}`}>
+          {`${contactData.email}`}
+        </Link>
+        <Link href={`tel:${contactData.phone}`}>{`${contactData.phone}`}</Link>
+      </StyledContactLinks>
+    </StyledBottomWrapper>
+  );
+
   return (
     <StyledHome id={homeId}>
-      <StyledInner>
-        <Heading>
-          <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
-            Hi there, I'm
-          </AnimatedText>
-        </Heading>
-        <Heading headingType="h1">
-          <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
-            Krzysztof Bartkiewicz
-          </AnimatedText>
-        </Heading>
-      </StyledInner>
-      <StyledBottomWrapper>
-        <StyledSectionLinks>
-          <Button
-            buttonType={buttonTypes.text}
-            onClickFn={() => handleGoToPage(sectionTypes.projects)}
-          >
-            Projects
-          </Button>
-          <Button
-            buttonType={buttonTypes.text}
-            onClickFn={() => handleGoToPage(sectionTypes.contact)}
-          >
-            Contact
-          </Button>
-        </StyledSectionLinks>
-        <StyledContactLinks>
-          <Link href={`mailto:${contactData.email}`}>
-            {`${contactData.email}`}
-          </Link>
-          <Link
-            href={`tel:${contactData.phone}`}
-          >{`${contactData.phone}`}</Link>
-        </StyledContactLinks>
-      </StyledBottomWrapper>
+      {renderInnerWrapper()}
+
+      {renderBottomWrapper()}
     </StyledHome>
   );
 };

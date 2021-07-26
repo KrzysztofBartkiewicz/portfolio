@@ -7,6 +7,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import Pagination from '../components/Pagination';
+import ScrollInfo from '../components/ScrollInfo';
+import { sectionTypes } from '../helpers';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -24,7 +26,7 @@ const App = () => {
     const app = appRef.current;
     sections.current = app.children;
 
-    Array.from(sections.current).forEach((section) => {
+    [...sections.current].forEach((section) => {
       ScrollTrigger.create({
         trigger: section,
         end: 'bottom top+=1',
@@ -68,6 +70,11 @@ const App = () => {
       <Pagination
         onClickFn={handleGoToPage}
         id={activeSection ? activeSection.id : null}
+      />
+      <ScrollInfo
+        isVisible={
+          activeSection ? activeSection.id === sectionTypes.home : null
+        }
       />
     </AppContext.Provider>
   );
