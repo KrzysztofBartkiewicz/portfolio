@@ -4,7 +4,7 @@ import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
-import { buttonTypes } from '../../helpers';
+import { buttonTypes, sectionTypes, contactData } from '../../helpers';
 import {
   StyledBottomWrapper,
   StyledHome,
@@ -15,7 +15,7 @@ import {
 
 const Home = ({ id }) => {
   const { handleGoToPage } = useContext(AppContext);
-  const homeId = 'home';
+  const homeId = sectionTypes.home;
 
   return (
     <StyledHome id={homeId}>
@@ -35,22 +35,24 @@ const Home = ({ id }) => {
         <StyledSectionLinks>
           <Button
             buttonType={buttonTypes.text}
-            onClickFn={() => handleGoToPage('projects')}
+            onClickFn={() => handleGoToPage(sectionTypes.projects)}
           >
             Projects
           </Button>
           <Button
             buttonType={buttonTypes.text}
-            onClickFn={() => handleGoToPage('contact')}
+            onClickFn={() => handleGoToPage(sectionTypes.contact)}
           >
             Contact
           </Button>
         </StyledSectionLinks>
         <StyledContactLinks>
-          <Link href="mailto:bartkiewicz.krzysztof84@gmail.com">
-            bartkiewicz.krzysztof84@gmail.com
+          <Link href={`mailto:${contactData.email}`}>
+            {`${contactData.email}`}
           </Link>
-          <Link href="tel:+48796459623">+48 796 459 623</Link>
+          <Link
+            href={`tel:${contactData.phone}`}
+          >{`${contactData.phone}`}</Link>
         </StyledContactLinks>
       </StyledBottomWrapper>
     </StyledHome>
