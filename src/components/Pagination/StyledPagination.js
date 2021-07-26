@@ -10,8 +10,8 @@ export const StyledPagination = styled.div`
 `;
 
 const dot = css`
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   border: none;
 `;
@@ -29,8 +29,7 @@ export const StyledDot = styled.button`
     opacity: 0;
     position: absolute;
     left: 3rem;
-    top: 50%;
-    transform: translateY(-45%);
+    top: -7%;
     transition: opacity 1s;
     font-size: ${({ theme }) => theme.fontSizes.l};
     pointer-events: none;
@@ -45,6 +44,6 @@ export const StyledDot = styled.button`
 
 export const StyledMovingDot = styled.div`
   ${dot}
-  background: ${({ theme }) => theme.colors.yellow};
+  background: ${({ theme }) => theme.colors.lightBlue};
   z-index: 10;
 `;

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import AppContext from '../context/AppContext';
 import Contact from '../views/Contact';
 import Home from '../views/Home';
 import Projects from '../views/Projects';
@@ -53,8 +54,12 @@ const App = () => {
     }
   };
 
+  const contextValue = {
+    handleGoToPage,
+  };
+
   return (
-    <>
+    <AppContext.Provider value={contextValue}>
       <div ref={appRef}>
         <Home id={activeSection ? activeSection.id : null} />
         <Projects />
@@ -64,7 +69,7 @@ const App = () => {
         onClickFn={handleGoToPage}
         id={activeSection ? activeSection.id : null}
       />
-    </>
+    </AppContext.Provider>
   );
 };
 

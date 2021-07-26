@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledLink } from './StyledLink';
 
-const Link = ({ src, children }) => {
-  return <StyledLink src={src}>{children}</StyledLink>;
+const Link = ({ href, children }) => {
+  return <StyledLink href={href}>{children}</StyledLink>;
 };
 
 export default Link;

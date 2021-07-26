@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../context/AppContext';
 import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
 import Button from '../../components/Button';
@@ -13,6 +14,7 @@ import {
 } from './StyledHome';
 
 const Home = ({ id }) => {
+  const { handleGoToPage } = useContext(AppContext);
   const homeId = 'home';
 
   return (
@@ -31,12 +33,24 @@ const Home = ({ id }) => {
       </StyledInner>
       <StyledBottomWrapper>
         <StyledSectionLinks>
-          <Button buttonType={buttonTypes.text}>Projects</Button>
-          <Button buttonType={buttonTypes.text}>Contact</Button>
+          <Button
+            buttonType={buttonTypes.text}
+            onClickFn={() => handleGoToPage('projects')}
+          >
+            Projects
+          </Button>
+          <Button
+            buttonType={buttonTypes.text}
+            onClickFn={() => handleGoToPage('contact')}
+          >
+            Contact
+          </Button>
         </StyledSectionLinks>
         <StyledContactLinks>
-          <Link>bartkiewicz.krzysztof84@gmail.com</Link>
-          <Link>+48 796 459 623</Link>
+          <Link href="mailto:bartkiewicz.krzysztof84@gmail.com">
+            bartkiewicz.krzysztof84@gmail.com
+          </Link>
+          <Link href="tel:+48796459623">+48 796 459 623</Link>
         </StyledContactLinks>
       </StyledBottomWrapper>
     </StyledHome>

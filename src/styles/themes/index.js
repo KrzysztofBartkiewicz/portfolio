@@ -5,6 +5,7 @@ const mainTheme = {
     white: '#FAFAFA',
     black: '#212529',
     blue: '#185ADB',
+    lightBlue: '#00AAFF',
     yellow: '#FFC947',
     grey: '#EFEFEF',
     darkGrey: '#444444',

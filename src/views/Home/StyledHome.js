@@ -16,7 +16,7 @@ export const StyledInner = styled.div`
   left: ${leftMargin};
 
   &:first-child h3 {
-    margin: 0 0 -1.5rem 0.4rem;
+    margin-left: 0.4rem;
   }
 `;
 
