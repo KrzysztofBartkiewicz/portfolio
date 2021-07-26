@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StyledScrollInfo = styled.div`
   position: absolute;
   bottom: 30%;
-  left: 15%;
+  left: 12%;
   display: flex;
   align-items: center;
   pointer-events: none;

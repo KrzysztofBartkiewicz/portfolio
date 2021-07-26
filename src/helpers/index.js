@@ -1,5 +1,6 @@
 export const buttonTypes = {
   text: 'text',
+  hamburger: 'hamburger',
 };
 
 export const sectionTypes = {

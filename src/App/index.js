@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import _ from 'lodash';
 import { sectionTypes } from '../helpers';
+import LogoContainer from '../components/LogoContainer';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -18,6 +19,7 @@ const App = () => {
 
   const [activeSection, setActiveSection] = useState(null);
   const [position, setPosition] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleScroll = (e) => {
     const delta = Math.sign(e.deltaY);
@@ -49,6 +51,8 @@ const App = () => {
     scrollAnim.current.to(window, {
       scrollTo: { y: activeSection, autoKill: false },
       duration: 1,
+      onStart: () => setIsAnimating(true),
+      onComplete: () => setIsAnimating(false),
     });
   }, [activeSection]);
 
@@ -74,11 +78,13 @@ const App = () => {
 
   return (
     <AppContext.Provider value={contextValue}>
+      <LogoContainer isAnimating={isAnimating} />
       <div ref={appRef}>
         <Home id={activeSection ? activeSection.id : null} />
         <Projects />
         <Contact />
       </div>
+
       <Pagination
         onClickFn={handleGoToPage}
         id={activeSection ? activeSection.id : null}
