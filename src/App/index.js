@@ -42,6 +42,7 @@ const App = () => {
   useEffect(() => {
     const app = appRef.current;
     sections.current = app.children;
+    setActiveSection([...sections.current][0]);
 
     window.addEventListener('wheel', _.debounce(handleScroll, 500));
   }, []);
@@ -58,7 +59,7 @@ const App = () => {
 
   const handleGoToPage = (id) => {
     if (!scrollAnim.current.isActive()) {
-      setPosition((prev) => {
+      setPosition(() => {
         switch (id) {
           case sectionTypes.projects:
             return 1;
@@ -79,10 +80,11 @@ const App = () => {
   return (
     <AppContext.Provider value={contextValue}>
       <LogoContainer isAnimating={isAnimating} />
+
       <div ref={appRef}>
         <Home id={activeSection ? activeSection.id : null} />
-        <Projects />
-        <Contact />
+        <Projects id={activeSection ? activeSection.id : null} />
+        <Contact id={activeSection ? activeSection.id : null} />
       </div>
 
       <Pagination
