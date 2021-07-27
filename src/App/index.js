@@ -9,6 +9,7 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import _ from 'lodash';
 import { sectionTypes } from '../helpers';
 import LogoContainer from '../components/LogoContainer';
+import OnloadAnimation from '../components/OnloadAnimation';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -79,6 +80,7 @@ const App = () => {
 
   return (
     <AppContext.Provider value={contextValue}>
+      <OnloadAnimation />
       <LogoContainer isAnimating={isAnimating} />
 
       <div ref={appRef}>
