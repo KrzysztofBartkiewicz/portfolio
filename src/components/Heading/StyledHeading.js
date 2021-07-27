@@ -6,7 +6,9 @@ export const StyledHeadingH1 = styled.h1`
   line-height: 1.1;
 `;
 
-export const StyledHeadingH2 = styled.h2``;
+export const StyledHeadingH2 = styled.h2`
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+`;
 
 export const StyledHeadingH3 = styled.h3`
   font-size: ${({ theme }) => theme.fontSizes.l};

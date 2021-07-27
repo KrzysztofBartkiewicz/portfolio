@@ -3,10 +3,11 @@ import gsap from 'gsap';
 import { StyledText, StyledWrapper } from './StyledText';
 
 const AnimatedText = ({ children, slideUp, slideDown }) => {
-  const textRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
-    const text = textRef.current;
+    const wrapper = wrapperRef.current;
+    const text = wrapper.children[0];
 
     if (slideUp) {
       gsap.fromTo(text, { y: 0 }, { y: -text.offsetHeight - 3, duration: 0.5 });
@@ -21,8 +22,8 @@ const AnimatedText = ({ children, slideUp, slideDown }) => {
   }, [slideUp, slideDown]);
 
   return (
-    <StyledWrapper>
-      <StyledText ref={textRef}>{children}</StyledText>
+    <StyledWrapper ref={wrapperRef}>
+      <StyledText>{children}</StyledText>
     </StyledWrapper>
   );
 };

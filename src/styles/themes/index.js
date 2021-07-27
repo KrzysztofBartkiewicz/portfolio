@@ -7,7 +7,7 @@ const mainTheme = {
     blue: '#185ADB',
     lightBlue: '#00AAFF',
     yellow: '#FFC947',
-    grey: '#EFEFEF',
+    grey: '#E8E8E8',
     darkGrey: '#444444',
   },
 

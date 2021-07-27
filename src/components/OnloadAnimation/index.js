@@ -11,13 +11,14 @@ const OnloadAnimation = () => {
 
     const tl = gsap.timeline({ paused: true, delay: 0.5 });
 
-    lettersArr.forEach((letter, index) => {
+    lettersArr.forEach((letter) => {
       tl.set(letter, { display: 'inline' })
         .to(letter, { scale: 4, duration: 0.1 })
         .to(letter, { scale: 1, duration: 0.1 });
     });
     tl.to(wrapper, { scale: 4, duration: 0.1, delay: 0.3 })
       .to(wrapper, { scale: 1, duration: 0.1 })
+      .to(wrapper, { scale: 0, duration: 0.3, delay: 0.2 })
       .set(wrapper, { display: 'none', delay: 0.3 })
       .play();
   }, []);
