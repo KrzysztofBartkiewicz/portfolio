@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '../../components/Card';
 import SectionHeading from '../../components/SectionHeading';
+import AppContext from '../../context/AppContext';
 import { sectionTypes, projectsData } from '../../helpers';
 import { StyledInner, StyledProjects } from './StyledProjects';
 
-const Projects = ({ id }) => {
+const Projects = () => {
+  const { activeSection } = useContext(AppContext);
+  const sectionId = activeSection ? activeSection.id : null;
+
   return (
     <StyledProjects id={sectionTypes.projects}>
-      <SectionHeading sectionType={sectionTypes.projects} id={id}>
+      <SectionHeading sectionType={sectionTypes.projects} sectionId={sectionId}>
         Projects
       </SectionHeading>
       <StyledInner>

@@ -44,6 +44,6 @@ export const StyledDot = styled.button`
 
 export const StyledMovingDot = styled.div`
   ${dot}
-  background: ${({ theme }) => theme.colors.lightBlue};
+  background: ${({ theme }) => theme.colors.yellow};
   z-index: 10;
 `;

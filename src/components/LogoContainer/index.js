@@ -1,11 +1,15 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import gsap from 'gsap';
 import { buttonTypes } from '../../helpers';
 import Button from '../Button';
 import { StyledLogoContainer, StyledLogo } from './StyledContainer';
+import AppContext from '../../context/AppContext';
 
 const LogoContainer = ({ isAnimating }) => {
   const containerRef = useRef(null);
+
+  const { activeSection } = useContext(AppContext);
+  const sectionId = activeSection ? activeSection.id : null;
 
   useEffect(() => {
     if (isAnimating) {
@@ -22,7 +26,7 @@ const LogoContainer = ({ isAnimating }) => {
   return (
     <StyledLogoContainer ref={containerRef}>
       <Button buttonType={buttonTypes.hamburger} />
-      <StyledLogo>portfolio</StyledLogo>
+      <StyledLogo sectionId={sectionId}>portfolio</StyledLogo>
     </StyledLogoContainer>
   );
 };

@@ -14,19 +14,27 @@ import {
 } from './StyledHome';
 import ScrollInfo from '../../components/ScrollInfo';
 
-const Home = ({ id }) => {
-  const { handleGoToPage } = useContext(AppContext);
+const Home = () => {
+  const { handleGoToPage, activeSection } = useContext(AppContext);
   const homeId = sectionTypes.home;
+
+  const sectionId = activeSection ? activeSection.id : null;
 
   const renderInnerWrapper = () => (
     <StyledInner>
       <Heading>
-        <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
+        <AnimatedText
+          slideUp={sectionId !== homeId}
+          slideDown={sectionId === homeId}
+        >
           Hi there, I'm
         </AnimatedText>
       </Heading>
       <Heading headingType="h1">
-        <AnimatedText slideUp={id !== homeId} slideDown={id === homeId}>
+        <AnimatedText
+          slideUp={sectionId !== homeId}
+          slideDown={sectionId === homeId}
+        >
           Krzysztof Bartkiewicz
         </AnimatedText>
       </Heading>

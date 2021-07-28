@@ -76,6 +76,7 @@ const App = () => {
 
   const contextValue = {
     handleGoToPage,
+    activeSection,
   };
 
   return (
@@ -84,15 +85,12 @@ const App = () => {
       <LogoContainer isAnimating={isAnimating} />
 
       <div ref={appRef}>
-        <Home id={activeSection ? activeSection.id : null} />
-        <Projects id={activeSection ? activeSection.id : null} />
-        <Contact id={activeSection ? activeSection.id : null} />
+        <Home />
+        <Projects />
+        <Contact />
       </div>
 
-      <Pagination
-        onClickFn={handleGoToPage}
-        id={activeSection ? activeSection.id : null}
-      />
+      <Pagination onClickFn={handleGoToPage} />
     </AppContext.Provider>
   );
 };

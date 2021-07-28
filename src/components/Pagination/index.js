@@ -1,20 +1,24 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import gsap from 'gsap/gsap-core';
+import AppContext from '../../context/AppContext';
 import {
   StyledDot,
   StyledMovingDot,
   StyledPagination,
 } from './StyledPagination';
 
-const Pagination = ({ id, onClickFn }) => {
+const Pagination = ({ onClickFn }) => {
   const wrapperRef = useRef(null);
+
+  const { activeSection } = useContext(AppContext);
+  const sectionId = activeSection ? activeSection.id : null;
 
   useEffect(() => {
     const [movingDot, homeDot, projectsDot, contactDot] =
       wrapperRef.current.children;
 
     const getTarget = () => {
-      switch (id) {
+      switch (sectionId) {
         case 'contact':
           return contactDot;
         case 'projects':
@@ -28,21 +32,27 @@ const Pagination = ({ id, onClickFn }) => {
       y: getTarget().offsetTop,
       duration: 1,
     });
-  }, [id]);
+  }, [sectionId]);
 
   return (
     <StyledPagination ref={wrapperRef}>
       <StyledMovingDot />
-      <StyledDot onClick={() => onClickFn('home')} active={id === 'home'}>
+      <StyledDot
+        onClick={() => onClickFn('home')}
+        active={sectionId === 'home'}
+      >
         <p>Home</p>
       </StyledDot>
       <StyledDot
         onClick={() => onClickFn('projects')}
-        active={id === 'projects'}
+        active={sectionId === 'projects'}
       >
         <p>Projects</p>
       </StyledDot>
-      <StyledDot onClick={() => onClickFn('contact')} active={id === 'contact'}>
+      <StyledDot
+        onClick={() => onClickFn('contact')}
+        active={sectionId === 'contact'}
+      >
         <p>Contact</p>
       </StyledDot>
     </StyledPagination>

@@ -2,10 +2,13 @@ import React from 'react';
 import AnimatedText from '../../components/AnimatedText';
 import { StyledHeading } from './StyledSectionHeading';
 
-const SectionHeading = ({ sectionType, children, id }) => {
+const SectionHeading = ({ sectionType, children, sectionId }) => {
   return (
-    <StyledHeading>
-      <AnimatedText slideDown={id === sectionType} slideUp={id !== sectionType}>
+    <StyledHeading sectionId={sectionId}>
+      <AnimatedText
+        slideDown={sectionId === sectionType}
+        slideUp={sectionId !== sectionType}
+      >
         {children}
       </AnimatedText>
     </StyledHeading>

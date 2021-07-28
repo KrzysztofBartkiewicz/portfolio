@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { buttonTypes } from '../../helpers';
+import { buttonTypes, sectionTypes } from '../../helpers';
 
 export const StyledBar = styled.span`
   display: none;
@@ -7,13 +7,16 @@ export const StyledBar = styled.span`
   height: 5px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.black};
+  transition: background-color 0s 0.5s;
 
-  ${({ buttonType, theme }) =>
+  ${({ buttonType, sectionId, theme }) =>
     buttonType === buttonTypes.hamburger &&
     css`
       display: block;
       position: absolute;
       top: 33%;
+      background-color: ${sectionId === sectionTypes.contact &&
+      theme.colors.white};
 
       &::after {
         content: '';
@@ -43,7 +46,7 @@ export const StyledButton = styled.button`
       }
     `}
 
-  ${({ buttonType, theme }) =>
+  ${({ buttonType }) =>
     buttonType === buttonTypes.hamburger &&
     css`
       width: 6rem;
