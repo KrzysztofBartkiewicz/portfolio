@@ -28,6 +28,7 @@ const mainTheme = {
   mixins: {
     view: css`
       height: 100vh;
+      overflow: hidden;
     `,
   },
 };
