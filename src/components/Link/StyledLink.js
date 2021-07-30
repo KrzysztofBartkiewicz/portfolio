@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledLink = styled.a`
-  color: ${({ theme }) => theme.colors.blue};
+  color: ${({ color, theme }) =>
+    color ? theme.colors[color] : theme.colors.blue};
 `;

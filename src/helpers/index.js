@@ -5,6 +5,7 @@ import { ReactComponent as PanelIcon } from '../assets/icons/admin.svg';
 export const buttonTypes = {
   text: 'text',
   hamburger: 'hamburger',
+  icon: 'icon',
 };
 
 export const sectionTypes = {

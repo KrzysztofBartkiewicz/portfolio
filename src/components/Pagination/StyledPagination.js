@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
@@ -30,14 +31,15 @@ export const StyledDot = styled.button`
     position: absolute;
     left: 3rem;
     top: -7%;
-    transition: opacity 1s;
     font-size: ${({ theme }) => theme.fontSizes.l};
     pointer-events: none;
+    transition: opacity 1s, color 1s;
 
-    ${({ active }) =>
+    ${({ active, sectionId, theme }) =>
       active &&
       css`
         opacity: 1;
+        color: ${sectionId === sectionTypes.contact && theme.colors.white};
       `};
   }
 `;

@@ -9,6 +9,7 @@ const mainTheme = {
     yellow: '#FFC947',
     grey: '#E8E8E8',
     darkGrey: '#444444',
+    lightBlack: '#2b2b2b',
   },
 
   fontSizes: {
@@ -23,6 +24,10 @@ const mainTheme = {
     normal: 400,
     semiBold: 600,
     bold: 700,
+  },
+
+  margins: {
+    s: '0.4rem',
   },
 
   mixins: {

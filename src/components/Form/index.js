@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Input from '../Input';
+import Button from '../Button';
+import { ReactComponent as SendIcon } from '../../assets/icons/send.svg';
 import { StyledForm } from './StyledForm';
+import { buttonTypes } from '../../helpers';
 
 const initialValue = {
   email: '',
@@ -20,8 +23,12 @@ const Form = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       <Input
         label="email"
         type="email"
@@ -40,6 +47,9 @@ const Form = () => {
         value={inputValue.message}
         onChangeFn={handleChange}
       />
+      <Button buttonType={buttonTypes.icon} icon={SendIcon} type="submit">
+        Send message
+      </Button>
     </StyledForm>
   );
 };

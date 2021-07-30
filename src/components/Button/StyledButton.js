@@ -34,11 +34,11 @@ export const StyledBar = styled.span`
 `;
 
 export const StyledButton = styled.button`
+  background: transparent;
+  border: none;
   ${({ buttonType, theme }) =>
     buttonType === buttonTypes.text &&
     css`
-      border: none;
-      background: transparent;
       transition: color 0.3s;
 
       &:hover {
@@ -51,12 +51,24 @@ export const StyledButton = styled.button`
     css`
       width: 6rem;
       padding: 2rem 1rem;
-      border: none;
-      background: transparent;
       position: relative;
 
       &:hover ${StyledBar}::after {
         width: 3rem;
+      }
+    `}
+
+  ${({ buttonType, theme }) =>
+    buttonType === buttonTypes.icon &&
+    css`
+      color: ${theme.colors.white};
+      display: flex;
+      align-items: center;
+      svg {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+        fill: ${theme.colors.white};
       }
     `}
 `;

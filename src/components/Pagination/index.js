@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import gsap from 'gsap/gsap-core';
 import AppContext from '../../context/AppContext';
+import { sectionTypes } from '../../helpers';
 import {
   StyledDot,
   StyledMovingDot,
@@ -19,9 +20,9 @@ const Pagination = ({ onClickFn }) => {
 
     const getTarget = () => {
       switch (sectionId) {
-        case 'contact':
+        case sectionTypes.contact:
           return contactDot;
-        case 'projects':
+        case sectionTypes.projects:
           return projectsDot;
         default:
           return homeDot;
@@ -38,20 +39,23 @@ const Pagination = ({ onClickFn }) => {
     <StyledPagination ref={wrapperRef}>
       <StyledMovingDot />
       <StyledDot
-        onClick={() => onClickFn('home')}
-        active={sectionId === 'home'}
+        onClick={() => onClickFn(sectionTypes.home)}
+        active={sectionId === sectionTypes.home}
+        sectionId={sectionTypes.home}
       >
         <p>Home</p>
       </StyledDot>
       <StyledDot
-        onClick={() => onClickFn('projects')}
-        active={sectionId === 'projects'}
+        onClick={() => onClickFn(sectionTypes.projects)}
+        active={sectionId === sectionTypes.projects}
+        sectionId={sectionTypes.projects}
       >
         <p>Projects</p>
       </StyledDot>
       <StyledDot
-        onClick={() => onClickFn('contact')}
-        active={sectionId === 'contact'}
+        onClick={() => onClickFn(sectionTypes.contact)}
+        active={sectionId === sectionTypes.contact}
+        sectionId={sectionTypes.contact}
       >
         <p>Contact</p>
       </StyledDot>

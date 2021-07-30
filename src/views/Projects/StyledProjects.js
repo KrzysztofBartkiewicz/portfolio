@@ -3,8 +3,9 @@ import bg from '../../assets/images/app.svg';
 
 export const StyledProjects = styled.section`
   ${({ theme }) => theme.mixins.view}
-  background: url(${bg}) 15% / 100rem 100rem no-repeat 
-    ${({ theme }) => theme.colors.grey};
+  background: linear-gradient(rgba(43, 43, 43, 0.3), rgba(43, 43, 43, 0.3)),
+    url(${bg}) 15% / 100rem 100rem no-repeat
+      ${({ theme }) => theme.colors.white};
   display: flex;
   align-items: center;
   justify-content: center;
