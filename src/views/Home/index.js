@@ -22,7 +22,7 @@ const Home = () => {
 
   const renderInnerWrapper = () => (
     <StyledInner>
-      <Heading>
+      <Heading color="blue">
         <AnimatedText
           slideUp={sectionId !== homeId}
           slideDown={sectionId === homeId}

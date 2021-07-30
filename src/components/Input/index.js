@@ -7,7 +7,7 @@ import {
   StyledWrapper,
 } from './StyledInput';
 
-const Input = ({ value, onChangeFn, label, type, textArea }) => {
+const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
   const labelRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -41,6 +41,7 @@ const Input = ({ value, onChangeFn, label, type, textArea }) => {
             {label}
           </StyledLabel>
           <StyledTextarea
+            required={required}
             onFocus={handleFocus}
             onBlur={handleBlur}
             value={value}
@@ -54,6 +55,7 @@ const Input = ({ value, onChangeFn, label, type, textArea }) => {
             {label}
           </StyledLabel>
           <StyledInput
+            required={required}
             onFocus={handleFocus}
             onBlur={handleBlur}
             type={type}
