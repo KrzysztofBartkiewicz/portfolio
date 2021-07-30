@@ -4,6 +4,7 @@ import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
+import ScrollInfo from '../../components/ScrollInfo';
 import { buttonTypes, sectionTypes, contactData } from '../../helpers';
 import {
   StyledBottomWrapper,
@@ -11,8 +12,8 @@ import {
   StyledInner,
   StyledContactLinks,
   StyledSectionLinks,
+  StyledGreeting,
 } from './StyledHome';
-import ScrollInfo from '../../components/ScrollInfo';
 
 const Home = () => {
   const { handleGoToPage, activeSection } = useContext(AppContext);
@@ -22,14 +23,14 @@ const Home = () => {
 
   const renderInnerWrapper = () => (
     <StyledInner>
-      <Heading color="blue">
+      <StyledGreeting>
         <AnimatedText
           slideUp={sectionId !== homeId}
           slideDown={sectionId === homeId}
         >
           Hi there, I'm
         </AnimatedText>
-      </Heading>
+      </StyledGreeting>
       <Heading headingType="h1">
         <AnimatedText
           slideUp={sectionId !== homeId}

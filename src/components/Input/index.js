@@ -9,6 +9,7 @@ import {
 
 const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
   const labelRef = useRef(null);
+  const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -16,6 +17,7 @@ const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
 
   useEffect(() => {
     const lablelEl = labelRef.current;
+    const inputEl = inputRef.current;
 
     if (isFocused) {
       const tl = gsap.timeline();
@@ -27,20 +29,21 @@ const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
           opacity: 1,
         })
         .to(lablelEl, { xPercent: -20, duration: 0.1 });
-    } else {
+    } else if (inputEl.value.length === 0) {
       const tl = gsap.timeline();
       tl.set(lablelEl, { scale: 1, xPercent: 0, yPercent: 0, opacity: 0.3 });
     }
   }, [isFocused]);
 
   return (
-    <StyledWrapper onClick={(e) => console.dir(e.target)}>
+    <StyledWrapper>
       {textArea ? (
         <>
           <StyledLabel ref={labelRef} htmlFor={label}>
             {label}
           </StyledLabel>
           <StyledTextarea
+            ref={inputRef}
             required={required}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -55,6 +58,7 @@ const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
             {label}
           </StyledLabel>
           <StyledInput
+            ref={inputRef}
             required={required}
             onFocus={handleFocus}
             onBlur={handleBlur}

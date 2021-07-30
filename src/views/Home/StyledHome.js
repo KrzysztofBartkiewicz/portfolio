@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Heading from '../../components/Heading';
 import avatar from '../../assets/images/coder.svg';
 
 const leftMargin = '10%';
@@ -41,4 +42,8 @@ export const StyledContactLinks = styled.div`
   & *:first-child {
     margin-right: 4rem;
   }
+`;
+
+export const StyledGreeting = styled(Heading)`
+  color: ${({ theme }) => theme.colors.blue};
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import bg from '../../assets/images/contact.svg';
+import Heading from '../../components/Heading';
 
 export const StyledContact = styled.section`
   ${({ theme }) => theme.mixins.view}
@@ -26,4 +27,13 @@ export const StyledHeadingWrapper = styled.div`
 
 export const StyledInner = styled.div`
   margin-bottom: 5rem;
+`;
+
+export const StyledContactHeading = styled(Heading)`
+  color: ${({ theme }) => theme.colors.white};
+`;
+
+export const StyledDataHeading = styled(Heading)`
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 1rem;
 `;

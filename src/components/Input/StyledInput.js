@@ -6,6 +6,7 @@ const sharedStyles = css`
   font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   background: transparent;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const StyledWrapper = styled.div`
@@ -24,9 +25,15 @@ export const StyledLabel = styled.label`
 
 const focusStyles = css`
   &:focus,
-  &:active {
+  &:active,
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
     background: ${({ theme }) => theme.colors.blue};
     color: ${({ theme }) => theme.colors.white};
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.white} !important;
+    box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.blue} inset !important;
   }
 `;
 
