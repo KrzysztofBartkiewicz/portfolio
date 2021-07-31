@@ -6,11 +6,11 @@ const mainTheme = {
     black: '#212529',
     blue: '#185ADB',
     lightBlue: '#00AAFF',
-    yellow: '#FFC947',
+    yellow: '#d3b714',
     grey: '#E8E8E8',
     darkGrey: '#444444',
     lightBlack: '#2b2b2b',
-    red: '#e61a1a',
+    red: '#e73635',
   },
 
   fontSizes: {

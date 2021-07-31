@@ -31,14 +31,6 @@ export const projectsData = [
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-shop',
   },
   {
-    title: 'Movie app',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
-    icon: MovieIcon,
-    demoUrl: 'https://movie-react-app-portfolio.netlify.app',
-    githubUrl: 'https://github.com/KrzysztofBartkiewicz/movie-app',
-  },
-  {
     title: 'Admin panel',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
@@ -46,6 +38,15 @@ export const projectsData = [
     demoUrl: '',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-admin-panel',
   },
+  {
+    title: 'Movie app',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
+    icon: MovieIcon,
+    demoUrl: 'https://movie-react-app-portfolio.netlify.app',
+    githubUrl: 'https://github.com/KrzysztofBartkiewicz/movie-app',
+  },
+
   {
     title: 'Smart home',
     description:

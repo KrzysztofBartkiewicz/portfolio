@@ -20,7 +20,13 @@ const Projects = () => {
           slideUp={sectionId !== sectionTypes.projects}
           slideDown={sectionId === sectionTypes.projects}
         >
-          My latest projects<span>.</span>
+          My latest
+        </AnimatedText>
+        <AnimatedText
+          slideUp={sectionId !== sectionTypes.projects}
+          slideDown={sectionId === sectionTypes.projects}
+        >
+          projects<span>.</span>
         </AnimatedText>
       </StyledHeading>
       <StyledInner>

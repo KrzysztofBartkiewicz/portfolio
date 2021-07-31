@@ -34,7 +34,7 @@ export const StyledContactHeading = styled(Heading)`
   color: ${({ theme }) => theme.colors.white};
 
   span {
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 

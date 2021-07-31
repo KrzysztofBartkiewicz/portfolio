@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import SectionHeading from '../../components/SectionHeading';
+import AnimatedText from '../../components/AnimatedText';
 import { sectionTypes } from '../../helpers';
-import { StyledAbout } from './StyledAbout';
+import { StyledAbout, StyledAboutHeading } from './StyledAbout';
 
 const About = () => {
   const { activeSection } = useContext(AppContext);
@@ -13,6 +14,15 @@ const About = () => {
       <SectionHeading sectionType={sectionTypes.about} sectionId={sectionId}>
         About
       </SectionHeading>
+
+      <StyledAboutHeading headingType="h1">
+        <AnimatedText
+          slideUp={sectionId !== sectionTypes.about}
+          slideDown={sectionId === sectionTypes.about}
+        >
+          About me<span>.</span>
+        </AnimatedText>
+      </StyledAboutHeading>
     </StyledAbout>
   );
 };

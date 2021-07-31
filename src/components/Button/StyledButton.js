@@ -64,11 +64,28 @@ export const StyledButton = styled.button`
       color: ${theme.colors.white};
       display: flex;
       align-items: center;
+      position: relative;
+
       svg {
         width: 3rem;
         height: 3rem;
         margin-right: 1rem;
         fill: ${theme.colors.white};
+      }
+
+      &::after {
+        content: '';
+        min-width: 0;
+        height: 3px;
+        background-color: ${theme.colors.white};
+        position: absolute;
+        bottom: -30%;
+        left: 0;
+        transition: min-width 0.6s ease-in-out;
+      }
+
+      &:hover::after {
+        min-width: 100%;
       }
     `}
 `;
