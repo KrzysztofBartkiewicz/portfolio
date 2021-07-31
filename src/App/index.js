@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import AppContext from '../context/AppContext';
 import Contact from '../views/Contact';
 import Home from '../views/Home';
+import About from '../views/About';
 import Projects from '../views/Projects';
 import Pagination from '../components/Pagination';
 import gsap from 'gsap';
@@ -26,7 +27,7 @@ const App = () => {
     const delta = Math.sign(e.deltaY);
 
     setPosition((prev) => {
-      if (prev + delta >= 0 && prev + delta <= 2) {
+      if (prev + delta >= 0 && prev + delta <= 3) {
         return prev + delta;
       }
       return prev;
@@ -64,8 +65,10 @@ const App = () => {
         switch (id) {
           case sectionTypes.projects:
             return 1;
-          case sectionTypes.contact:
+          case sectionTypes.about:
             return 2;
+          case sectionTypes.contact:
+            return 3;
 
           default:
             return 0;
@@ -87,6 +90,7 @@ const App = () => {
       <div ref={appRef}>
         <Home />
         <Projects />
+        <About />
         <Contact />
       </div>
 

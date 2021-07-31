@@ -15,7 +15,7 @@ const Pagination = ({ onClickFn }) => {
   const sectionId = activeSection ? activeSection.id : null;
 
   useEffect(() => {
-    const [movingDot, homeDot, projectsDot, contactDot] =
+    const [movingDot, homeDot, projectsDot, aboutDot, contactDot] =
       wrapperRef.current.children;
 
     const getTarget = () => {
@@ -24,6 +24,8 @@ const Pagination = ({ onClickFn }) => {
           return contactDot;
         case sectionTypes.projects:
           return projectsDot;
+        case sectionTypes.about:
+          return aboutDot;
         default:
           return homeDot;
       }
@@ -51,6 +53,13 @@ const Pagination = ({ onClickFn }) => {
         sectionId={sectionTypes.projects}
       >
         <p>Projects</p>
+      </StyledDot>
+      <StyledDot
+        onClick={() => onClickFn(sectionTypes.about)}
+        active={sectionId === sectionTypes.about}
+        sectionId={sectionTypes.about}
+      >
+        <p>About</p>
       </StyledDot>
       <StyledDot
         onClick={() => onClickFn(sectionTypes.contact)}

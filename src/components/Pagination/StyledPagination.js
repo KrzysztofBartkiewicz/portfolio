@@ -39,9 +39,7 @@ export const StyledDot = styled.button`
       active &&
       css`
         opacity: 1;
-        color: ${(sectionId === sectionTypes.contact ||
-          sectionId === sectionTypes.projects) &&
-        theme.colors.white};
+        color: ${sectionId !== sectionTypes.home && theme.colors.white};
       `};
   }
 `;

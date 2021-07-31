@@ -13,6 +13,7 @@ export const sectionTypes = {
   home: 'home',
   projects: 'projects',
   contact: 'contact',
+  about: 'about',
 };
 
 export const contactData = {

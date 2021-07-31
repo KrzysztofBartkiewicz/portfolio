@@ -15,8 +15,7 @@ export const StyledBar = styled.span`
       display: block;
       position: absolute;
       top: 33%;
-      background-color: ${(sectionId === sectionTypes.contact ||
-        sectionId === sectionTypes.projects) &&
+      background-color: ${sectionId !== sectionTypes.home &&
       theme.colors.white};
 
       &::after {
