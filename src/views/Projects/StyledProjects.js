@@ -1,14 +1,24 @@
 import styled from 'styled-components';
-import bg from '../../assets/images/app.svg';
+import Heading from '../../components/Heading';
+import bg from '../../assets/images/waves.svg';
 
 export const StyledProjects = styled.section`
   ${({ theme }) => theme.mixins.view}
-  background: linear-gradient(rgba(43, 43, 43, 0.3), rgba(43, 43, 43, 0.3)),
-    url(${bg}) 15% / 100rem 100rem no-repeat
+  background: 
+    url(${bg}) center / cover no-repeat
       ${({ theme }) => theme.colors.white};
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const StyledHeading = styled(Heading)`
+  color: ${({ theme }) => theme.colors.white};
+  margin-left: ${({ theme }) => theme.margins.leftMargin};
+
+  span {
+    color: ${({ theme }) => theme.colors.lightBlue};
+  }
 `;
 
 export const StyledInner = styled.div`
@@ -19,12 +29,31 @@ export const StyledInner = styled.div`
   justify-content: center;
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 3rem auto;
+    grid-gap: 3rem;
   }
 
-  li:not(:last-child) {
-    margin-right: 6rem;
+  li {
+    &:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &:nth-child(2) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    &:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    &:nth-child(4) {
+      grid-column: 4;
+      grid-row: 2;
+    }
   }
 `;

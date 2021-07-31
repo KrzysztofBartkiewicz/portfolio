@@ -5,7 +5,7 @@ import Heading from '../../components/Heading';
 export const StyledContact = styled.section`
   ${({ theme }) => theme.mixins.view}
 
-  padding: 15rem 20rem;
+  padding: 15rem 0;
   background: linear-gradient(rgba(24, 90, 219, 0.95), rgba(24, 90, 219, 0.95)),
     url(${bg}) 75% / 100rem 100rem no-repeat
       ${({ theme }) => theme.colors.white};
@@ -23,6 +23,7 @@ export const StyledHeadingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: ${({ theme }) => theme.margins.leftMargin};
 `;
 
 export const StyledInner = styled.div`
@@ -31,6 +32,10 @@ export const StyledInner = styled.div`
 
 export const StyledContactHeading = styled(Heading)`
   color: ${({ theme }) => theme.colors.white};
+
+  span {
+    color: ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export const StyledDataHeading = styled(Heading)`

@@ -10,10 +10,11 @@ const mainTheme = {
     grey: '#E8E8E8',
     darkGrey: '#444444',
     lightBlack: '#2b2b2b',
+    red: '#e61a1a',
   },
 
   fontSizes: {
-    xxl: '6.3rem',
+    xxl: '7.5rem',
     xl: '3.3rem',
     l: '1.4rem',
     s: '1.3rem',
@@ -27,7 +28,7 @@ const mainTheme = {
   },
 
   margins: {
-    s: '0.4rem',
+    leftMargin: '10%',
   },
 
   mixins: {

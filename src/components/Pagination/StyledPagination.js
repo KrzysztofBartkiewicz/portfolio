@@ -3,9 +3,9 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 2%;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 5%;
+  bottom: -2%;
+  transform: rotate(-90deg);
   display: flex;
   flex-direction: column;
 `;
@@ -39,7 +39,9 @@ export const StyledDot = styled.button`
       active &&
       css`
         opacity: 1;
-        color: ${sectionId === sectionTypes.contact && theme.colors.white};
+        color: ${(sectionId === sectionTypes.contact ||
+          sectionId === sectionTypes.projects) &&
+        theme.colors.white};
       `};
   }
 `;

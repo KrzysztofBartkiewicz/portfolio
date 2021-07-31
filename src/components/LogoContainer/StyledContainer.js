@@ -19,7 +19,8 @@ export const StyledLogo = styled.span`
   transition: color 0s 0.5s;
 
   ${({ sectionId, theme }) =>
-    sectionId === sectionTypes.contact &&
+    (sectionId === sectionTypes.contact ||
+      sectionId === sectionTypes.projects) &&
     css`
       color: ${theme.colors.white};
     `}

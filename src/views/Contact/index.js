@@ -31,7 +31,7 @@ const Contact = () => {
           slideUp={sectionId !== sectionTypes.contact}
           slideDown={sectionId === sectionTypes.contact}
         >
-          touch
+          touch<span>.</span>
         </AnimatedText>
       </StyledContactHeading>
     </StyledHeadingWrapper>

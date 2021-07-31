@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import Card from '../../components/Card';
 import SectionHeading from '../../components/SectionHeading';
 import AppContext from '../../context/AppContext';
+import AnimatedText from '../../components/AnimatedText';
 import { sectionTypes, projectsData } from '../../helpers';
-import { StyledInner, StyledProjects } from './StyledProjects';
+import { StyledHeading, StyledProjects, StyledInner } from './StyledProjects';
 
 const Projects = () => {
   const { activeSection } = useContext(AppContext);
@@ -14,6 +15,14 @@ const Projects = () => {
       <SectionHeading sectionType={sectionTypes.projects} sectionId={sectionId}>
         Projects
       </SectionHeading>
+      <StyledHeading headingType="h1">
+        <AnimatedText
+          slideUp={sectionId !== sectionTypes.projects}
+          slideDown={sectionId === sectionTypes.projects}
+        >
+          My latest projects<span>.</span>
+        </AnimatedText>
+      </StyledHeading>
       <StyledInner>
         <ul>
           {projectsData.map(

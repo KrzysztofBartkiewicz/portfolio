@@ -23,7 +23,7 @@ const Card = ({
       <StyledContent>
         <StyledFace>
           <Icon style={{ width: '6rem', height: 'auto' }} />
-          <Heading headingType="h2">{faceHeading}</Heading>
+          <Heading>{faceHeading}</Heading>
         </StyledFace>
         <StyledBack>
           <Heading>{backHeading}</Heading>

@@ -1,20 +1,15 @@
 import styled from 'styled-components';
 import Heading from '../../components/Heading';
-import avatar from '../../assets/images/coder.svg';
-
-const leftMargin = '10%';
 
 export const StyledHome = styled.section`
   ${({ theme }) => theme.mixins.view}
-  background: url(${avatar}) right / 100rem 100rem no-repeat 
-    ${({ theme }) => theme.colors.white};
   position: relative;
 `;
 
 export const StyledInner = styled.div`
   position: fixed;
   top: 50%;
-  left: ${leftMargin};
+  left: ${({ theme }) => theme.margins.leftMargin};
 
   &:first-child h3 {
     margin-left: 0.4rem;
@@ -27,7 +22,7 @@ export const StyledBottomWrapper = styled.div`
   justify-content: space-between;
   position: absolute;
   bottom: 10%;
-  left: ${leftMargin};
+  left: ${({ theme }) => theme.margins.leftMargin};
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 `;
