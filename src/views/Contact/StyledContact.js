@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import bg from '../../assets/images/contact.svg';
+import bg from '../../assets/images/world.svg';
 import Heading from '../../components/Heading';
 
 export const StyledContact = styled.section`
   ${({ theme }) => theme.mixins.view}
 
   padding: 15rem 0;
-  background: linear-gradient(rgba(24, 90, 219, 0.95), rgba(24, 90, 219, 0.95)),
-    url(${bg}) 75% / 100rem 100rem no-repeat
-      ${({ theme }) => theme.colors.white};
+  background: linear-gradient(rgba(24, 90, 219, 0.7), rgba(24, 90, 219, 0.7)),
+    url(${bg}) center / cover no-repeat ${({ theme }) => theme.colors.white};
   display: flex;
 `;
 
