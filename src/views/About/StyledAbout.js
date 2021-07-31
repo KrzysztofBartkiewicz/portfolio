@@ -8,7 +8,7 @@ export const StyledAbout = styled.section`
     ${({ theme }) => theme.colors.white};
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 `;
 
 export const StyledAboutHeading = styled(Heading)`
@@ -17,4 +17,8 @@ export const StyledAboutHeading = styled(Heading)`
   span {
     color: ${({ theme }) => theme.colors.red};
   }
+`;
+
+export const StyledAnimWrapper = styled.div`
+  width: 50%;
 `;

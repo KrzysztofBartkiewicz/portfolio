@@ -36,7 +36,7 @@ const Home = () => {
           slideUp={sectionId !== homeId}
           slideDown={sectionId === homeId}
         >
-          Krzysztof Bartkiewicz
+          Krzysztof Bartkiewicz.
         </AnimatedText>
       </Heading>
     </StyledInner>

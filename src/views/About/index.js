@@ -3,7 +3,12 @@ import AppContext from '../../context/AppContext';
 import SectionHeading from '../../components/SectionHeading';
 import AnimatedText from '../../components/AnimatedText';
 import { sectionTypes } from '../../helpers';
-import { StyledAbout, StyledAboutHeading } from './StyledAbout';
+import {
+  StyledAbout,
+  StyledAboutHeading,
+  StyledAnimWrapper,
+} from './StyledAbout';
+import SpiningAnim from '../../components/SpiningAnim';
 
 const About = () => {
   const { activeSection } = useContext(AppContext);
@@ -23,6 +28,8 @@ const About = () => {
           About me<span>.</span>
         </AnimatedText>
       </StyledAboutHeading>
+
+      <SpiningAnim />
     </StyledAbout>
   );
 };
