@@ -13,6 +13,7 @@ import {
   StyledContactLinks,
   StyledSectionLinks,
   StyledGreeting,
+  StyledAboutMe,
 } from './StyledHome';
 
 const Home = () => {
@@ -39,6 +40,15 @@ const Home = () => {
           Krzysztof Bartkiewicz.
         </AnimatedText>
       </Heading>
+
+      <StyledAboutMe
+        slideUp={sectionId !== homeId}
+        slideDown={sectionId === homeId}
+        size="l"
+        weight="bold"
+      >
+        I'm aspiring frontend developer based in Olsztyn, Poland
+      </StyledAboutMe>
     </StyledInner>
   );
 

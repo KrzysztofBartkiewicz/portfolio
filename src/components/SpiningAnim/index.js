@@ -6,7 +6,7 @@ import sassLogo from '../../assets/icons/sass.svg';
 import css3Logo from '../../assets/icons/css3.svg';
 import gitLogo from '../../assets/icons/git.svg';
 import jsLogo from '../../assets/icons/js.svg';
-import html5Logo from '../../assets/icons/html5.svg';
+import reduxLogo from '../../assets/icons/redux.svg';
 import {
   StyledIcon,
   StyledOrbit,
@@ -18,7 +18,7 @@ const spiningElements = [
   {
     size: 16,
     duration: 9,
-    icon: html5Logo,
+    icon: reduxLogo,
   },
   {
     size: 26,

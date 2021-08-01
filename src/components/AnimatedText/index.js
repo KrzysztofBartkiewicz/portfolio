@@ -2,7 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { StyledText, StyledWrapper } from './StyledText';
 
-const AnimatedText = ({ children, slideUp, slideDown }) => {
+const AnimatedText = ({
+  children,
+  slideUp,
+  slideDown,
+  size,
+  weight,
+  className,
+}) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -22,8 +29,10 @@ const AnimatedText = ({ children, slideUp, slideDown }) => {
   }, [slideUp, slideDown]);
 
   return (
-    <StyledWrapper ref={wrapperRef}>
-      <StyledText>{children}</StyledText>
+    <StyledWrapper className={className} ref={wrapperRef}>
+      <StyledText size={size} weight={weight}>
+        {children}
+      </StyledText>
     </StyledWrapper>
   );
 };

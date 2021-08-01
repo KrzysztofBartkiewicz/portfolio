@@ -1,18 +1,19 @@
 import styled from 'styled-components';
+import AnimatedText from '../../components/AnimatedText';
 import Heading from '../../components/Heading';
 
 export const StyledHome = styled.section`
   ${({ theme }) => theme.mixins.view}
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 export const StyledInner = styled.div`
-  position: fixed;
-  top: 50%;
-  left: ${({ theme }) => theme.margins.leftMargin};
+  margin-left: ${({ theme }) => theme.margins.leftMargin};
 
   &:first-child h3 {
-    margin-left: 0.4rem;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -41,4 +42,10 @@ export const StyledContactLinks = styled.div`
 
 export const StyledGreeting = styled(Heading)`
   color: ${({ theme }) => theme.colors.blue};
+`;
+
+export const StyledAboutMe = styled(AnimatedText)`
+  font-size: ${({ theme }) => theme.fontSizes.l};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  margin-left: 0.5rem;
 `;

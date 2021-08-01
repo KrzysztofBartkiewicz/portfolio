@@ -28,6 +28,15 @@ const Projects = () => {
         >
           projects<span>.</span>
         </AnimatedText>
+        <AnimatedText
+          slideUp={sectionId !== sectionTypes.projects}
+          slideDown={sectionId === sectionTypes.projects}
+          size="l"
+          weight="bold"
+        >
+          All of them are made in <span>React</span> which is the JS framework I
+          like to work with the most.
+        </AnimatedText>
       </StyledHeading>
       <StyledInner>
         <ul>

@@ -3,7 +3,7 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 5%;
+  left: 6%;
   bottom: -2%;
   transform: rotate(-90deg);
   display: flex;
@@ -54,9 +54,9 @@ export const StyledMovingDot = styled.div`
       case sectionTypes.projects:
         return theme.colors.lightBlue;
       case sectionTypes.about:
-        return theme.colors.yellow;
+        return theme.colors.red;
       case sectionTypes.contact:
-        return theme.colors.white;
+        return theme.colors.yellow;
 
       default:
         return theme.colors.black;

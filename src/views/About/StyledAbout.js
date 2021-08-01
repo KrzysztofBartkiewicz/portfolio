@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import bg from '../../assets/images/shapes.svg';
+import AnimatedText from '../../components/AnimatedText';
 import Heading from '../../components/Heading';
 
 export const StyledAbout = styled.section`
@@ -16,5 +17,29 @@ export const StyledAboutHeading = styled(Heading)`
   color: ${({ theme }) => theme.colors.white};
   span {
     color: ${({ theme }) => theme.colors.red};
+  }
+`;
+
+export const StyledSubHeading = styled(AnimatedText)`
+  span {
+    &:nth-child(1) {
+      color: ${({ theme }) => theme.colors.lightBlue};
+    }
+
+    &:nth-child(3) {
+      color: ${({ theme }) => theme.colors.red};
+    }
+
+    &:nth-child(4) {
+      color: ${({ theme }) => theme.colors.yellow};
+    }
+
+    &:nth-child(6) {
+      color: ${({ theme }) => theme.colors.red};
+    }
+
+    &:nth-child(8) {
+      color: ${({ theme }) => theme.colors.blue};
+    }
   }
 `;
