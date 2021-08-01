@@ -28,7 +28,7 @@ export const StyledBottomWrapper = styled.div`
 `;
 
 export const StyledSectionLinks = styled.div`
-  & *:first-child {
+  & *:not(:last-child) {
     margin-right: 4rem;
   }
 `;

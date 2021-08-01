@@ -39,7 +39,7 @@ const Pagination = ({ onClickFn }) => {
 
   return (
     <StyledPagination ref={wrapperRef}>
-      <StyledMovingDot />
+      <StyledMovingDot sectionId={sectionId} />
       <StyledDot
         onClick={() => onClickFn(sectionTypes.home)}
         active={sectionId === sectionTypes.home}

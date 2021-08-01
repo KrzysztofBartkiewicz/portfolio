@@ -3,11 +3,7 @@ import AppContext from '../../context/AppContext';
 import SectionHeading from '../../components/SectionHeading';
 import AnimatedText from '../../components/AnimatedText';
 import { sectionTypes } from '../../helpers';
-import {
-  StyledAbout,
-  StyledAboutHeading,
-  StyledAnimWrapper,
-} from './StyledAbout';
+import { StyledAbout, StyledAboutHeading } from './StyledAbout';
 import SpiningAnim from '../../components/SpiningAnim';
 
 const About = () => {

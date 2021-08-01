@@ -53,6 +53,12 @@ const Home = () => {
         </Button>
         <Button
           buttonType={buttonTypes.text}
+          onClickFn={() => handleGoToPage(sectionTypes.about)}
+        >
+          About
+        </Button>
+        <Button
+          buttonType={buttonTypes.text}
           onClickFn={() => handleGoToPage(sectionTypes.contact)}
         >
           Contact

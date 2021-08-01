@@ -14,35 +14,35 @@ import {
   StyledWrapper,
 } from './StyledSpiningAnim';
 
-const rotatingElements = [
+const spiningElements = [
   {
     size: 16,
-    duration: 3,
+    duration: 9,
     icon: html5Logo,
   },
   {
     size: 26,
-    duration: 5,
+    duration: 11,
     icon: npmLogo,
   },
   {
     size: 36,
-    duration: 7,
+    duration: 13,
     icon: sassLogo,
   },
   {
     size: 49,
-    duration: 9,
+    duration: 17,
     icon: css3Logo,
   },
   {
     size: 67,
-    duration: 11,
+    duration: 20,
     icon: gitLogo,
   },
   {
     size: 81,
-    duration: 15,
+    duration: 25,
     icon: jsLogo,
   },
 ];
@@ -52,28 +52,31 @@ const SpiningAnim = () => {
 
   useEffect(() => {
     const elementsArr = [...wrapperRef.current.children];
-    elementsArr.forEach((el) => {
+    elementsArr.forEach((el, index) => {
       gsap.to(el, {
-        rotation: 360,
+        rotation: index === 0 ? -360 : 360,
         repeat: -1,
         ease: Linear.easeNone,
         duration: el.dataset.duration,
       });
-      gsap.to(el.children[0], {
-        rotation: -360,
-        repeat: -1,
-        ease: Linear.easeNone,
-        duration: el.dataset.duration,
-      });
+      if (index !== 0) {
+        const iconElement = el.children[0];
+        gsap.to(iconElement, {
+          rotation: -360,
+          repeat: -1,
+          ease: Linear.easeNone,
+          duration: el.dataset.duration,
+        });
+      }
     });
   }, []);
 
   return (
     <StyledWrapper ref={wrapperRef}>
       <StyledReactLogo data-duration={4} src={reactLogo} alt="react icon" />
-      {rotatingElements.map(({ size, duration, icon }) => (
-        <StyledOrbit size={size} data-duration={duration}>
-          <StyledIcon src={icon} alt="rotating icon" />
+      {spiningElements.map(({ size, duration, icon }) => (
+        <StyledOrbit key={size} size={size} data-duration={duration}>
+          <StyledIcon src={icon} alt="spining icon" />
         </StyledOrbit>
       ))}
     </StyledWrapper>

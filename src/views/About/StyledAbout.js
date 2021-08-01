@@ -18,7 +18,3 @@ export const StyledAboutHeading = styled(Heading)`
     color: ${({ theme }) => theme.colors.red};
   }
 `;
-
-export const StyledAnimWrapper = styled.div`
-  width: 50%;
-`;

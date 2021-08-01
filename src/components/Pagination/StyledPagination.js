@@ -46,6 +46,20 @@ export const StyledDot = styled.button`
 
 export const StyledMovingDot = styled.div`
   ${dot}
-  background: ${({ theme }) => theme.colors.yellow};
   z-index: 10;
+  transition: background-color 1s;
+
+  background-color: ${({ sectionId, theme }) => {
+    switch (sectionId) {
+      case sectionTypes.projects:
+        return theme.colors.lightBlue;
+      case sectionTypes.about:
+        return theme.colors.yellow;
+      case sectionTypes.contact:
+        return theme.colors.white;
+
+      default:
+        return theme.colors.black;
+    }
+  }};
 `;
