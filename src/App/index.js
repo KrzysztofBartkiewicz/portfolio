@@ -11,6 +11,7 @@ import _ from 'lodash';
 import { sectionTypes } from '../helpers';
 import LogoContainer from '../components/LogoContainer';
 import OnloadAnimation from '../components/OnloadAnimation';
+import Menu from '../components/Menu';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -19,16 +20,35 @@ const App = () => {
   const sections = useRef(null);
   const scrollAnim = useRef(null);
 
-  const [activeSection, setActiveSection] = useState(null);
-  const [position, setPosition] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [state, setState] = useState({
+    activeSection: null,
+    position: 0,
+    isScrolling: false,
+    isMenuVisible: false,
+  });
+
+  const handleMenuVisibility = (value) => {
+    setState((prev) => {
+      return {
+        ...prev,
+        isMenuVisible: value,
+      };
+    });
+  };
 
   const handleScroll = (e) => {
     const delta = Math.sign(e.deltaY);
 
-    setPosition((prev) => {
-      if (prev + delta >= 0 && prev + delta <= 3) {
-        return prev + delta;
+    setState((prev) => {
+      if (
+        prev.position + delta >= 0 &&
+        prev.position + delta <= 3 &&
+        !prev.isMenuVisible
+      ) {
+        return {
+          ...prev,
+          position: prev.position + delta,
+        };
       }
       return prev;
     });
@@ -36,32 +56,40 @@ const App = () => {
 
   useEffect(() => {
     if (sections.current) {
-      const section = [...sections.current][position];
-      setActiveSection(section);
+      const section = [...sections.current][state.position];
+      setState((prev) => {
+        return {
+          ...prev,
+          activeSection: section,
+        };
+      });
     }
-  }, [position]);
+  }, [state.position]);
 
   useEffect(() => {
     const app = appRef.current;
     sections.current = app.children;
-    setActiveSection([...sections.current][0]);
+    setState((prev) => ({ ...prev, activeSection: [...sections.current][0] }));
 
     window.addEventListener('wheel', _.debounce(handleScroll, 500));
+    return () => {
+      window.removeEventListener('wheel', _.debounce(handleScroll, 500));
+    };
   }, []);
 
   useEffect(() => {
     scrollAnim.current = gsap.timeline();
     scrollAnim.current.to(window, {
-      scrollTo: { y: activeSection, autoKill: false },
+      scrollTo: { y: state.activeSection, autoKill: false },
       duration: 1,
-      onStart: () => setIsAnimating(true),
-      onComplete: () => setIsAnimating(false),
+      onStart: () => setState((prev) => ({ ...prev, isScrolling: true })),
+      onComplete: () => setState((prev) => ({ ...prev, isScrolling: false })),
     });
-  }, [activeSection]);
+  }, [state.activeSection]);
 
   const handleGoToPage = (id) => {
     if (!scrollAnim.current.isActive()) {
-      setPosition(() => {
+      const getPosition = () => {
         switch (id) {
           case sectionTypes.projects:
             return 1;
@@ -73,19 +101,30 @@ const App = () => {
           default:
             return 0;
         }
+      };
+      setState((prev) => {
+        return {
+          ...prev,
+          position: getPosition(),
+        };
       });
     }
   };
 
   const contextValue = {
     handleGoToPage,
-    activeSection,
+    handleMenuVisibility,
+    isMenuVisible: state.isMenuVisible,
+    activeSection: state.activeSection,
+    isScrolling: state.isScrolling,
   };
 
   return (
     <AppContext.Provider value={contextValue}>
+      <Menu />
       <OnloadAnimation />
-      <LogoContainer isAnimating={isAnimating} />
+      <LogoContainer />
+      <Pagination />
 
       <div ref={appRef}>
         <Home />
@@ -93,8 +132,6 @@ const App = () => {
         <About />
         <Contact />
       </div>
-
-      <Pagination onClickFn={handleGoToPage} />
     </AppContext.Provider>
   );
 };

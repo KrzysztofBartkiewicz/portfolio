@@ -5,14 +5,16 @@ import Button from '../Button';
 import { StyledLogoContainer, StyledLogo } from './StyledContainer';
 import AppContext from '../../context/AppContext';
 
-const LogoContainer = ({ isAnimating }) => {
+const LogoContainer = () => {
   const containerRef = useRef(null);
 
-  const { activeSection } = useContext(AppContext);
+  const { activeSection, isMenuVisible, handleMenuVisibility, isScrolling } =
+    useContext(AppContext);
+
   const sectionId = activeSection ? activeSection.id : null;
 
   useEffect(() => {
-    if (isAnimating) {
+    if (isScrolling) {
       const container = containerRef.current;
       const tl = gsap.timeline();
       tl.set(container, { opacity: 0 }).to(container, {
@@ -21,12 +23,17 @@ const LogoContainer = ({ isAnimating }) => {
         delay: 0.6,
       });
     }
-  }, [isAnimating]);
+  }, [isScrolling]);
 
   return (
     <StyledLogoContainer ref={containerRef}>
-      <Button buttonType={buttonTypes.hamburger} />
-      <StyledLogo sectionId={sectionId}>portfolio</StyledLogo>
+      <Button
+        buttonType={buttonTypes.hamburger}
+        onClickFn={() => handleMenuVisibility(!isMenuVisible)}
+      />
+      <StyledLogo isMenuVisible={isMenuVisible} sectionId={sectionId}>
+        portfolio
+      </StyledLogo>
     </StyledLogoContainer>
   );
 };

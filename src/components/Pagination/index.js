@@ -8,10 +8,10 @@ import {
   StyledPagination,
 } from './StyledPagination';
 
-const Pagination = ({ onClickFn }) => {
+const Pagination = () => {
   const wrapperRef = useRef(null);
 
-  const { activeSection } = useContext(AppContext);
+  const { activeSection, handleGoToPage } = useContext(AppContext);
   const sectionId = activeSection ? activeSection.id : null;
 
   useEffect(() => {
@@ -41,28 +41,28 @@ const Pagination = ({ onClickFn }) => {
     <StyledPagination ref={wrapperRef}>
       <StyledMovingDot sectionId={sectionId} />
       <StyledDot
-        onClick={() => onClickFn(sectionTypes.home)}
+        onClick={() => handleGoToPage(sectionTypes.home)}
         active={sectionId === sectionTypes.home}
         sectionId={sectionTypes.home}
       >
         <p>Home</p>
       </StyledDot>
       <StyledDot
-        onClick={() => onClickFn(sectionTypes.projects)}
+        onClick={() => handleGoToPage(sectionTypes.projects)}
         active={sectionId === sectionTypes.projects}
         sectionId={sectionTypes.projects}
       >
         <p>Projects</p>
       </StyledDot>
       <StyledDot
-        onClick={() => onClickFn(sectionTypes.about)}
+        onClick={() => handleGoToPage(sectionTypes.about)}
         active={sectionId === sectionTypes.about}
         sectionId={sectionTypes.about}
       >
         <p>About</p>
       </StyledDot>
       <StyledDot
-        onClick={() => onClickFn(sectionTypes.contact)}
+        onClick={() => handleGoToPage(sectionTypes.contact)}
         active={sectionId === sectionTypes.contact}
         sectionId={sectionTypes.contact}
       >
