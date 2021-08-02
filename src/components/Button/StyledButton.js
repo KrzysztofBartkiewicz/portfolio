@@ -7,7 +7,7 @@ export const StyledBar = styled.span`
   height: 5px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.black};
-  transition: background-color 0s 0.5s;
+  transition: background-color 0.5s 0.5s, transform 1s ease-in-out;
 
   ${({ buttonType, isMenuVisible, sectionId, theme }) =>
     buttonType === buttonTypes.hamburger &&
@@ -29,7 +29,19 @@ export const StyledBar = styled.span`
         top: 1rem;
         right: 0;
         border-radius: inherit;
-        transition: width 0.6s ease;
+        transition: width 0.6s ease, transform 1s ease-in-out;
+      }
+    `}
+
+  ${({ isMenuVisible, theme }) =>
+    isMenuVisible &&
+    css`
+      transform: rotate(-45deg);
+      background-color: ${theme.colors.grey};
+
+      &::after {
+        transform: rotate(90deg) translateX(-1rem);
+        width: 4rem;
       }
     `}
 `;
@@ -53,7 +65,11 @@ export const StyledButton = styled.button`
       width: 6rem;
       padding: 2rem 1rem;
       position: relative;
+    `}
 
+  ${({ isMenuVisible }) =>
+    !isMenuVisible &&
+    css`
       &:hover ${StyledBar}::after {
         width: 3rem;
       }
