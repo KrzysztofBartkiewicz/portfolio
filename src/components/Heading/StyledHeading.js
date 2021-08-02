@@ -20,3 +20,9 @@ export const StyledHeadingH3 = styled.h3`
   font-size: ${({ theme }) => theme.fontSizes.l};
   text-transform: uppercase;
 `;
+
+export const StyledHeadingH4 = styled.h4`
+  color: ${({ theme }) => theme.colors.grey};
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  margin-left: 0.4rem;
+`;

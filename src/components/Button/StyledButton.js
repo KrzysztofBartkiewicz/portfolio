@@ -9,14 +9,15 @@ export const StyledBar = styled.span`
   background-color: ${({ theme }) => theme.colors.black};
   transition: background-color 0s 0.5s;
 
-  ${({ buttonType, sectionId, theme }) =>
+  ${({ buttonType, isMenuVisible, sectionId, theme }) =>
     buttonType === buttonTypes.hamburger &&
     css`
       display: block;
       position: absolute;
       top: 33%;
-      background-color: ${sectionId !== sectionTypes.home &&
-      theme.colors.white};
+      background-color: ${sectionId !== sectionTypes.home && !isMenuVisible
+        ? theme.colors.white
+        : theme.colors.black};
 
       &::after {
         content: '';

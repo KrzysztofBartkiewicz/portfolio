@@ -7,7 +7,7 @@ export const StyledLogoContainer = styled.div`
   align-items: center;
   max-width: fit-content;
   position: fixed;
-  z-index: 10;
+  z-index: ${({ theme }) => theme.levels.l2};
 `;
 
 export const StyledLogo = styled.span`
@@ -22,5 +22,11 @@ export const StyledLogo = styled.span`
     sectionId !== sectionTypes.home &&
     css`
       color: ${theme.colors.white};
+    `}
+
+  ${({ isMenuVisible, theme }) =>
+    isMenuVisible &&
+    css`
+      color: ${theme.colors.black};
     `}
 `;

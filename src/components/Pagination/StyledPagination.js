@@ -8,6 +8,7 @@ export const StyledPagination = styled.div`
   transform: rotate(-90deg);
   display: flex;
   flex-direction: column;
+  z-index: ${({ theme }) => theme.levels.l1};
 `;
 
 const dot = css`
@@ -46,8 +47,8 @@ export const StyledDot = styled.button`
 
 export const StyledMovingDot = styled.div`
   ${dot}
-  z-index: 10;
   transition: background-color 1s;
+  z-index: ${({ theme }) => theme.levels.l1 + 10};
 
   background-color: ${({ sectionId, theme }) => {
     switch (sectionId) {

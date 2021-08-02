@@ -7,7 +7,7 @@ const mainTheme = {
     blue: '#185ADB',
     lightBlue: '#00AAFF',
     yellow: '#d3b714',
-    grey: '#E8E8E8',
+    grey: '#A7BBC7',
     darkGrey: '#444444',
     lightBlack: '#2b2b2b',
     red: '#e73635',
@@ -16,7 +16,7 @@ const mainTheme = {
   fontSizes: {
     xxl: '7.5rem',
     xl: '3.3rem',
-    l: '1.4rem',
+    l: '1.6rem',
     s: '1.3rem',
     xs: '0.9rem',
   },
@@ -25,6 +25,13 @@ const mainTheme = {
     normal: 400,
     semiBold: 600,
     bold: 700,
+  },
+
+  levels: {
+    l1: 100,
+    l2: 200,
+    l3: 300,
+    l4: 400,
   },
 
   margins: {
