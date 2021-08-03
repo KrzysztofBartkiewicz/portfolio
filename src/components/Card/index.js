@@ -27,7 +27,7 @@ const Card = ({
         </StyledFace>
         <StyledBack>
           <Heading>{backHeading}</Heading>
-          <Paragraph size="l">{description}</Paragraph>
+          <Paragraph size="s">{description}</Paragraph>
           <StyledLinks>
             <Link href={demoUrl}>Demo</Link>
             <Link href={githubUrl}>GitHub</Link>

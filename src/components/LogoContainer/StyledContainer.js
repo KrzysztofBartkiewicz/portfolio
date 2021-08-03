@@ -14,7 +14,7 @@ export const StyledLogo = styled.span`
   font-family: 'Dokdo', cursive;
   font-size: 5rem;
   display: block;
-  margin-left: 6rem;
+  margin-left: 11rem;
   color: ${({ theme }) => theme.colors.black};
   transition: color 0s 0.5s;
 

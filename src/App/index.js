@@ -27,6 +27,43 @@ const App = () => {
     isMenuVisible: false,
   });
 
+  useEffect(() => {
+    if (sections.current) {
+      const section = [...sections.current][state.position];
+      setState((prev) => {
+        return {
+          ...prev,
+          activeSection: section,
+        };
+      });
+    }
+  }, [state.position]);
+
+  useEffect(() => {
+    handleScrollToSection();
+    console.log(window);
+  }, [state.activeSection]);
+
+  useEffect(() => {
+    const app = appRef.current;
+    sections.current = app.children;
+    setState((prev) => ({ ...prev, activeSection: [...sections.current][0] }));
+
+    window.addEventListener('wheel', _.debounce(handleScroll, 500));
+
+    window.addEventListener('resize', () =>
+      setState((prev) => {
+        window.scrollTo(0, prev.activeSection.offsetTop);
+
+        return prev;
+      })
+    );
+
+    return () => {
+      window.removeEventListener('wheel', _.debounce(handleScroll, 500));
+    };
+  }, []);
+
   const handleMenuVisibility = (value) => {
     setState((prev) => {
       return {
@@ -54,30 +91,7 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    if (sections.current) {
-      const section = [...sections.current][state.position];
-      setState((prev) => {
-        return {
-          ...prev,
-          activeSection: section,
-        };
-      });
-    }
-  }, [state.position]);
-
-  useEffect(() => {
-    const app = appRef.current;
-    sections.current = app.children;
-    setState((prev) => ({ ...prev, activeSection: [...sections.current][0] }));
-
-    window.addEventListener('wheel', _.debounce(handleScroll, 500));
-    return () => {
-      window.removeEventListener('wheel', _.debounce(handleScroll, 500));
-    };
-  }, []);
-
-  useEffect(() => {
+  const handleScrollToSection = () => {
     scrollAnim.current = gsap.timeline();
     scrollAnim.current.to(window, {
       scrollTo: { y: state.activeSection, autoKill: false },
@@ -85,7 +99,7 @@ const App = () => {
       onStart: () => setState((prev) => ({ ...prev, isScrolling: true })),
       onComplete: () => setState((prev) => ({ ...prev, isScrolling: false })),
     });
-  }, [state.activeSection]);
+  };
 
   const handleGoToPage = (id) => {
     if (!scrollAnim.current.isActive()) {
