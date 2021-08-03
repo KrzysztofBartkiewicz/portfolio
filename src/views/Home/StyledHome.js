@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import AnimatedText from '../../components/AnimatedText';
 import Heading from '../../components/Heading';
 
@@ -48,4 +48,22 @@ export const StyledAboutMe = styled(AnimatedText)`
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin-left: 0.5rem;
+`;
+
+export const StyledAside = styled.aside`
+  position: absolute;
+  right: 8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-lr;
+
+  ${({ theme }) => css`
+    font-size: ${theme.fontSizes.l};
+    font-weight: ${theme.fontWeights.bold};
+    z-index: ${theme.levels.l2};
+  `}
+
+  & *:not(:last-child) {
+    margin-bottom: 4rem;
+  }
 `;

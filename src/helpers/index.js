@@ -19,6 +19,8 @@ export const sectionTypes = {
 export const contactData = {
   email: 'bartkiewicz.krzysztof84@gmail.com',
   phone: '+48 796 459 623',
+  githubUrl: 'https://github.com/KrzysztofBartkiewicz',
+  linkedinUrl: 'https://www.linkedin.com/in/krzysztof-bartkiewicz-71bb25217',
 };
 
 export const projectsData = [

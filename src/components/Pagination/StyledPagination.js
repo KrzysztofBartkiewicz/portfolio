@@ -3,8 +3,8 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 6%;
-  bottom: -2%;
+  left: 10rem;
+  bottom: -2rem;
   transform: rotate(-90deg);
   display: flex;
   flex-direction: column;

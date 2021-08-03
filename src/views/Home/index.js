@@ -14,6 +14,7 @@ import {
   StyledSectionLinks,
   StyledGreeting,
   StyledAboutMe,
+  StyledAside,
 } from './StyledHome';
 
 const Home = () => {
@@ -87,6 +88,14 @@ const Home = () => {
     <StyledHome id={homeId}>
       {renderInnerWrapper()}
       <ScrollInfo />
+      <StyledAside>
+        <Link href={contactData.githubUrl} color="black">
+          Gihub
+        </Link>
+        <Link href={contactData.linkedinUrl} color="black">
+          LinkedIn
+        </Link>
+      </StyledAside>
       {renderBottomWrapper()}
     </StyledHome>
   );

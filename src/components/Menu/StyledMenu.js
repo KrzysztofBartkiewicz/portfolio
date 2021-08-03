@@ -4,7 +4,7 @@ import Heading from '../Heading';
 export const StyledMenu = styled.div`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   transform: translateX(-100%);

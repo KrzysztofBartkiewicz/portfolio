@@ -33,7 +33,7 @@ const Menu = () => {
     };
   }, []);
 
-  const handleResize = (e) => {
+  const handleResize = () => {
     setIsMenuVisibleState((prev) => {
       console.log(prev);
       if (prev) {
@@ -41,8 +41,7 @@ const Menu = () => {
       } else {
         menuRef.current.style.left = `${-menuRef.current.offsetWidth}`;
       }
-      menuRef.current.style.top = '0';
-      menuRef.current.style.width = `${e.target.innerWidth}px`;
+
       return prev;
     });
   };
