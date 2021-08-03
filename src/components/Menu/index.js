@@ -14,31 +14,57 @@ const Menu = () => {
     useContext(AppContext);
 
   const [isAnimating, setIsAnimating] = useState(false);
-  const menu = menuRef.current;
   const tl = gsap.timeline();
+
+  const [isMenuVisibleState, setIsMenuVisibleState] = useState(false);
+
+  useEffect(() => {
+    setIsMenuVisibleState(isMenuVisible);
+  }, [isMenuVisible]);
 
   useEffect(() => {
     handleAnimation();
   }, [isMenuVisible]);
 
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleResize = (e) => {
+    setIsMenuVisibleState((prev) => {
+      console.log(prev);
+      if (prev) {
+        menuRef.current.style.left = '0';
+      } else {
+        menuRef.current.style.left = `${-menuRef.current.offsetWidth}`;
+      }
+      menuRef.current.style.top = '0';
+      menuRef.current.style.width = `${e.target.innerWidth}px`;
+      return prev;
+    });
+  };
+
   const handleAnimation = () => {
     if (!isAnimating) {
       if (isMenuVisible) {
-        tl.set(menu, { display: 'block' }).to(menu, {
-          xPercent: 100,
+        tl.set(menuRef.current, { display: 'block' }).to(menuRef.current, {
+          x: 0,
           duration: 1,
           ease: Power1.ease,
           onStart: () => setIsAnimating(true),
           onComplete: () => setIsAnimating(false),
         });
       } else {
-        tl.to(menu, {
-          xPercent: 0,
+        tl.to(menuRef.current, {
+          x: -menuRef.current.offsetWidth,
           duration: 1,
           ease: Power1.ease,
           onStart: () => setIsAnimating(true),
           onComplete: () => setIsAnimating(false),
-        }).set(menu, { display: 'none' });
+        }).set(menuRef.current, { display: 'none' });
       }
     }
   };

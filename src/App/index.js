@@ -41,7 +41,6 @@ const App = () => {
 
   useEffect(() => {
     handleScrollToSection();
-    console.log(window);
   }, [state.activeSection]);
 
   useEffect(() => {
@@ -50,19 +49,20 @@ const App = () => {
     setState((prev) => ({ ...prev, activeSection: [...sections.current][0] }));
 
     window.addEventListener('wheel', _.debounce(handleScroll, 500));
-
-    window.addEventListener('resize', () =>
-      setState((prev) => {
-        window.scrollTo(0, prev.activeSection.offsetTop);
-
-        return prev;
-      })
-    );
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('wheel', _.debounce(handleScroll, 500));
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const handleResize = () => {
+    setState((prev) => {
+      window.scrollTo(0, prev.activeSection.offsetTop);
+      return prev;
+    });
+  };
 
   const handleMenuVisibility = (value) => {
     setState((prev) => {

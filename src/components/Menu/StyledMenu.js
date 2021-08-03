@@ -4,9 +4,10 @@ import Heading from '../Heading';
 export const StyledMenu = styled.div`
   width: 100vw;
   height: 100vh;
-  position: fixed;
+  position: absolute;
+  left: 0;
+  top: 0;
   transform: translateX(-100%);
-  display: none;
   z-index: ${({ theme }) => theme.levels.l2};
   background-color: ${({ theme }) => theme.colors.white};
   padding: 15rem 0 0 ${({ theme }) => theme.margins.leftMargin};

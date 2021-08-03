@@ -1,6 +1,10 @@
 import * as styled from 'styled-components';
 
 const GlobalStyle = styled.createGlobalStyle`
+  #root {
+    position: relative;
+  }
+
   * {
     margin: 0;
     padding: 0;
