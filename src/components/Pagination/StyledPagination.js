@@ -3,8 +3,8 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 10rem;
-  bottom: -2rem;
+  left: 8rem;
+  bottom: -5rem;
   transform: rotate(-90deg);
   display: flex;
   flex-direction: column;
@@ -16,6 +16,11 @@ const dot = css`
   height: 1.5rem;
   border-radius: 50%;
   border: none;
+
+  &:hover p {
+    opacity: 1;
+    visibility: visible;
+  }
 `;
 
 export const StyledDot = styled.button`
@@ -28,20 +33,19 @@ export const StyledDot = styled.button`
   }
 
   & p {
+    visibility: none;
     opacity: 0;
     position: absolute;
     left: 3rem;
     top: -7%;
     font-size: ${({ theme }) => theme.fontSizes.l};
     pointer-events: none;
-    transition: opacity 1s, color 1s;
+    transition: opacity 1s;
 
-    ${({ active, sectionId, theme }) =>
-      active &&
-      css`
-        opacity: 1;
-        color: ${sectionId !== sectionTypes.home && theme.colors.white};
-      `};
+    color: ${({ activeSectionId, theme }) =>
+      activeSectionId !== sectionTypes.home
+        ? theme.colors.white
+        : theme.colors.black};
   }
 `;
 

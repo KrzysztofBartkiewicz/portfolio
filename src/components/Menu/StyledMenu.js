@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import Heading from '../Heading';
 
-export const StyledMenu = styled.div`
+export const StyledMenu = styled.nav`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -10,11 +10,18 @@ export const StyledMenu = styled.div`
   transform: translateX(-100%);
   z-index: ${({ theme }) => theme.levels.l2};
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 15rem 0 0 ${({ theme }) => theme.margins.leftMargin};
+  padding-left: ${({ theme }) => theme.margins.leftMargin};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-  li:not(:last-child) {
-    margin-bottom: 8rem;
-  }
+export const StyledList = styled.ul`
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 export const StyledMenuHeading = styled(Heading)`

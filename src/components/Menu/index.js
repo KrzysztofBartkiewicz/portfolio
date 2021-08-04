@@ -3,10 +3,15 @@ import gsap from 'gsap';
 import { Power1 } from 'gsap/src/all';
 import Heading from '../Heading';
 import Button from '../Button';
-import AppContext from '../../context/AppContext';
-import { StyledLinks, StyledMenu, StyledMenuHeading } from './StyledMenu';
-import { sectionTypes, contactData } from '../../helpers';
 import Link from '../Link';
+import AppContext from '../../context/AppContext';
+import { sectionTypes, contactData } from '../../helpers';
+import {
+  StyledLinks,
+  StyledMenu,
+  StyledMenuHeading,
+  StyledList,
+} from './StyledMenu';
 
 const Menu = () => {
   const menuRef = useRef(null);
@@ -20,9 +25,6 @@ const Menu = () => {
 
   useEffect(() => {
     setIsMenuVisibleState(isMenuVisible);
-  }, [isMenuVisible]);
-
-  useEffect(() => {
     handleAnimation();
   }, [isMenuVisible]);
 
@@ -49,7 +51,7 @@ const Menu = () => {
   const handleAnimation = () => {
     if (!isAnimating) {
       if (isMenuVisible) {
-        tl.set(menuRef.current, { display: 'block' }).to(menuRef.current, {
+        tl.set(menuRef.current, { display: 'flex' }).to(menuRef.current, {
           x: 0,
           duration: 1,
           ease: Power1.ease,
@@ -75,34 +77,33 @@ const Menu = () => {
 
   return (
     <StyledMenu ref={menuRef}>
-      <nav>
-        <ul>
-          <li>
-            <Heading headingType="h4">Home section</Heading>
-            <Button onClickFn={() => handleClickMenuBtn(sectionTypes.home)}>
-              <StyledMenuHeading headingType="h1">Home</StyledMenuHeading>
-            </Button>
-          </li>
-          <li>
-            <Heading headingType="h4">My projects</Heading>
-            <Button onClickFn={() => handleClickMenuBtn(sectionTypes.projects)}>
-              <StyledMenuHeading headingType="h1">Projects</StyledMenuHeading>
-            </Button>
-          </li>
-          <li>
-            <Heading headingType="h4">Few words about me</Heading>
-            <Button onClickFn={() => handleClickMenuBtn(sectionTypes.about)}>
-              <StyledMenuHeading headingType="h1">About</StyledMenuHeading>
-            </Button>
-          </li>
-          <li>
-            <Heading headingType="h4">Contact me</Heading>
-            <Button onClickFn={() => handleClickMenuBtn(sectionTypes.contact)}>
-              <StyledMenuHeading headingType="h1">Contact</StyledMenuHeading>
-            </Button>
-          </li>
-        </ul>
-      </nav>
+      <StyledList>
+        <li>
+          <Heading headingType="h4">Home section</Heading>
+          <Button onClickFn={() => handleClickMenuBtn(sectionTypes.home)}>
+            <StyledMenuHeading headingType="h1">Home</StyledMenuHeading>
+          </Button>
+        </li>
+        <li>
+          <Heading headingType="h4">My projects</Heading>
+          <Button onClickFn={() => handleClickMenuBtn(sectionTypes.projects)}>
+            <StyledMenuHeading headingType="h1">Projects</StyledMenuHeading>
+          </Button>
+        </li>
+        <li>
+          <Heading headingType="h4">Few words about me</Heading>
+          <Button onClickFn={() => handleClickMenuBtn(sectionTypes.about)}>
+            <StyledMenuHeading headingType="h1">About</StyledMenuHeading>
+          </Button>
+        </li>
+        <li>
+          <Heading headingType="h4">Contact me</Heading>
+          <Button onClickFn={() => handleClickMenuBtn(sectionTypes.contact)}>
+            <StyledMenuHeading headingType="h1">Contact</StyledMenuHeading>
+          </Button>
+        </li>
+      </StyledList>
+
       <StyledLinks>
         <Link color="black" href={`mailto:${contactData.email}`}>
           {`${contactData.email}`}
