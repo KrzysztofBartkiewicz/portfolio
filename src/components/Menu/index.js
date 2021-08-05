@@ -15,10 +15,14 @@ import {
 
 const Menu = () => {
   const menuRef = useRef(null);
-  const { isMenuVisible, handleMenuVisibility, handleGoToPage } =
-    useContext(AppContext);
+  const {
+    isMenuVisible,
+    handleMenuVisibility,
+    handleGoToPage,
+    setIsMenuAnimating,
+    isMenuAnimating,
+  } = useContext(AppContext);
 
-  const [isAnimating, setIsAnimating] = useState(false);
   const tl = gsap.timeline();
 
   const [isMenuVisibleState, setIsMenuVisibleState] = useState(false);
@@ -49,22 +53,22 @@ const Menu = () => {
   };
 
   const handleAnimation = () => {
-    if (!isAnimating) {
+    if (!isMenuAnimating) {
       if (isMenuVisible) {
         tl.set(menuRef.current, { display: 'flex' }).to(menuRef.current, {
           x: 0,
           duration: 1,
           ease: Power1.ease,
-          onStart: () => setIsAnimating(true),
-          onComplete: () => setIsAnimating(false),
+          onStart: () => setIsMenuAnimating(true),
+          onComplete: () => setIsMenuAnimating(false),
         });
       } else {
         tl.to(menuRef.current, {
           x: -menuRef.current.offsetWidth,
           duration: 1,
           ease: Power1.ease,
-          onStart: () => setIsAnimating(true),
-          onComplete: () => setIsAnimating(false),
+          onStart: () => setIsMenuAnimating(true),
+          onComplete: () => setIsMenuAnimating(false),
         }).set(menuRef.current, { display: 'none' });
       }
     }

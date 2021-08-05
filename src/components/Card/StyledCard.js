@@ -27,6 +27,10 @@ export const StyledFace = styled.div`
   svg {
     margin-bottom: 1rem;
   }
+
+  ${({ theme }) => theme.mq.desktopSm} {
+    padding: 7rem 2rem;
+  }
 `;
 
 export const StyledBack = styled.div`
@@ -47,6 +51,10 @@ export const StyledCard = styled.div`
   height: 30.5rem;
   transition: border 0.3s ease-in-out;
   backdrop-filter: blur(10px);
+
+  ${({ theme }) => theme.mq.mobile} {
+    height: 20rem;
+  }
 
   &:hover {
     border: 1px dashed ${({ theme }) => theme.colors.black};

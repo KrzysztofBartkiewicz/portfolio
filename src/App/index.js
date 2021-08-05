@@ -25,6 +25,7 @@ const App = () => {
     position: 0,
     isScrolling: false,
     isMenuVisible: false,
+    isMenuAnimating: false,
     touchStart: null,
     touchEnd: null,
   });
@@ -88,9 +89,21 @@ const App = () => {
 
   const handleMenuVisibility = (value) => {
     setState((prev) => {
+      if (!prev.isMenuAnimating) {
+        return {
+          ...prev,
+          isMenuVisible: value,
+        };
+      }
+      return prev;
+    });
+  };
+
+  const setIsMenuAnimating = (value) => {
+    setState((prev) => {
       return {
         ...prev,
-        isMenuVisible: value,
+        isMenuAnimating: value,
       };
     });
   };
@@ -101,15 +114,16 @@ const App = () => {
     if (e) {
       delta = Math.sign(e.deltaY);
     } else {
-      if (ts < te + 5) {
+      if (ts < te - 5) {
         delta = -1;
-      } else if (ts > te - 5) {
+      } else if (ts > te + 5) {
         delta = 1;
       } else {
         delta = 0;
       }
     }
-
+    console.log(ts, te);
+    console.log(delta);
     setState((prev) => {
       if (
         prev.position + delta >= 0 &&
@@ -162,7 +176,9 @@ const App = () => {
   const contextValue = {
     handleGoToPage,
     handleMenuVisibility,
+    setIsMenuAnimating,
     isMenuVisible: state.isMenuVisible,
+    isMenuAnimating: state.isMenuAnimating,
     activeSection: state.activeSection,
     isScrolling: state.isScrolling,
   };
