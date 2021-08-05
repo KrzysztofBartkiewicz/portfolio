@@ -19,7 +19,7 @@ const LogoContainer = () => {
       const tl = gsap.timeline();
       tl.set(container, { opacity: 0 }).to(container, {
         opacity: 1,
-        duration: 1,
+        duration: 0.4,
         delay: 0.6,
       });
     }

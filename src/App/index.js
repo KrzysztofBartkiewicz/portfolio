@@ -127,7 +127,8 @@ const App = () => {
       if (
         prev.position + delta >= 0 &&
         prev.position + delta <= 3 &&
-        !prev.isMenuVisible
+        !prev.isMenuVisible &&
+        !prev.isScrolling
       ) {
         return {
           ...prev,
