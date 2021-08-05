@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { StyledScrollIcon, StyledScrollInfo } from './StyledScrollInfo';
+import Link from '../Link';
+import { portfolioGitHubUrl } from '../../helpers';
+import {
+  StyledLinkWrapper,
+  StyledScrollIcon,
+  StyledScrollInfo,
+} from './StyledScrollInfo';
 
 const ScrollInfo = () => {
   const wheellRef = useRef(null);
@@ -19,6 +25,11 @@ const ScrollInfo = () => {
         <span ref={wheellRef}></span>
       </StyledScrollIcon>
       <p>Scroll down</p>
+      <StyledLinkWrapper>
+        <Link color="black" href={portfolioGitHubUrl}>
+          Portfolio source code
+        </Link>
+      </StyledLinkWrapper>
     </StyledScrollInfo>
   );
 };

@@ -35,7 +35,7 @@ const mainTheme = {
   },
 
   margins: {
-    leftMargin: '10%',
+    leftMargin: '5%',
   },
 
   mq: {

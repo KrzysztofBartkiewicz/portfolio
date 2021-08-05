@@ -23,6 +23,8 @@ export const contactData = {
   linkedinUrl: 'https://www.linkedin.com/in/krzysztof-bartkiewicz-71bb25217',
 };
 
+export const portfolioGitHubUrl = `https://github.com/KrzysztofBartkiewicz/portfolio`;
+
 export const projectsData = [
   {
     title: 'React shop',

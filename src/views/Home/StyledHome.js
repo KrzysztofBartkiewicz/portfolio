@@ -47,6 +47,16 @@ export const StyledContactLinks = styled.div`
   & *:first-child {
     margin-right: 4rem;
   }
+
+  ${({ theme }) => theme.mq.mobile} {
+    & * {
+      display: block;
+    }
+
+    & *:first-child {
+      margin-bottom: 1rem;
+    }
+  }
 `;
 
 export const StyledGreeting = styled(Heading)`

@@ -15,7 +15,7 @@ const GlobalStyle = styled.createGlobalStyle`
     }
 
     ${({ theme }) => theme.mq.mobile} {
-      font-size: 40%;
+      font-size: 44%;
     }
   }
 

@@ -6,6 +6,10 @@ export const StyledScrollInfo = styled.div`
   align-items: center;
   pointer-events: none;
 
+  ${({ theme }) => theme.mq.mobile} {
+    margin-bottom: 10rem;
+  }
+
   p {
     font-size: ${({ theme }) => theme.fontSizes.l};
     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
@@ -29,5 +33,19 @@ export const StyledScrollIcon = styled.div`
     left: 50%;
     top: 10%;
     transform: translateX(-50%);
+  }
+`;
+
+export const StyledLinkWrapper = styled.div`
+  margin-left: 8rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid ${({ theme }) => theme.colors.black};
+  font-size: ${({ theme }) => theme.fontSizes.l};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  pointer-events: all;
+
+  ${({ theme }) => theme.mq.mobile} {
+    margin-left: 3rem;
   }
 `;
