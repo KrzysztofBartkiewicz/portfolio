@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const sharedStyles = css`
-  width: 100%;
+  width: 80%;
   border: none;
   outline: none;
   font-size: ${({ theme }) => theme.fontSizes.xl};

@@ -32,7 +32,7 @@ const About = () => {
           size="l"
           weight="bold"
         >
-          I specialise in create apps in <span>React</span>. I like style them
+          I specialise in creating apps in <span>React</span>. I like style them
           using Styled Components
           <br />
           but <span>Sass</span> and BEM methodology are no secret for me. I know{' '}
@@ -41,8 +41,10 @@ const About = () => {
           and use it in every project. For tracking changes I use{' '}
           <span>GIT</span> which i understand
           <br />
-          on basic level. I love to learn
-          new things like <span>Redux</span> which I learned lately.
+          on basic level. I love to learn new things like <span>
+            Redux
+          </span>{' '}
+          which I learned lately.
         </StyledSubHeading>
       </StyledAboutHeading>
 

@@ -38,7 +38,7 @@ export const StyledScrollIcon = styled.div`
 
 export const StyledLinkWrapper = styled.div`
   margin-left: 8rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 0.7rem 2rem;
   border-radius: 2rem;
   border: 1px solid ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSizes.l};

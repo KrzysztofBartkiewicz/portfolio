@@ -39,7 +39,7 @@ export const StyledSectionLinks = styled.div`
   }
 
   ${({ theme }) => theme.mq.mobile} {
-    margin-bottom: 2rem;
+    display: none;
   }
 `;
 
