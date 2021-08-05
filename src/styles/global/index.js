@@ -9,6 +9,14 @@ const GlobalStyle = styled.createGlobalStyle`
 
   html {
     font-size: 62.5%;
+
+    ${({ theme }) => theme.mq.tablet} {
+      font-size: 50%;
+    }
+
+    ${({ theme }) => theme.mq.mobile} {
+      font-size: 40%;
+    }
   }
 
   body {

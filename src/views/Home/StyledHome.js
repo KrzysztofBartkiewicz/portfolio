@@ -26,11 +26,20 @@ export const StyledBottomWrapper = styled.div`
   left: ${({ theme }) => theme.margins.leftMargin};
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+
+  ${({ theme }) => theme.mq.mobile} {
+    flex-direction: column;
+    bottom: 20%;
+  }
 `;
 
 export const StyledSectionLinks = styled.div`
   & *:not(:last-child) {
     margin-right: 4rem;
+  }
+
+  ${({ theme }) => theme.mq.mobile} {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -56,6 +65,10 @@ export const StyledAside = styled.aside`
   top: 50%;
   transform: translateY(-50%);
   writing-mode: vertical-lr;
+
+  ${({ theme }) => theme.mq.mobile} {
+    right: 2rem;
+  }
 
   ${({ theme }) => css`
     font-size: ${theme.fontSizes.l};

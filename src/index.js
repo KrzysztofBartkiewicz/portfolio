@@ -7,8 +7,8 @@ import GlobalStyle from './styles/global';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
     <ThemeProvider theme={mainTheme}>
+      <GlobalStyle />
       <App />
     </ThemeProvider>
   </React.StrictMode>,

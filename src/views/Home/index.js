@@ -50,6 +50,7 @@ const Home = () => {
       >
         I'm aspiring frontend developer based in Olsztyn, Poland
       </StyledAboutMe>
+      <ScrollInfo />
     </StyledInner>
   );
 
@@ -87,7 +88,7 @@ const Home = () => {
   return (
     <StyledHome id={homeId}>
       {renderInnerWrapper()}
-      <ScrollInfo />
+
       <StyledAside>
         <Link href={contactData.githubUrl} color="black">
           Gihub

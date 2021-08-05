@@ -4,7 +4,7 @@ import { buttonTypes, sectionTypes } from '../../helpers';
 export const StyledBar = styled.span`
   display: none;
   width: 4rem;
-  height: 5px;
+  height: 0.5rem;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.black};
   transition: background-color 0.5s 0.5s, transform 1s ease-in-out;
