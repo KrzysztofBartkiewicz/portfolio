@@ -8,6 +8,7 @@ import {
   StyledFace,
   StyledBack,
   StyledLinks,
+  StyledFaceLinks,
 } from './StyledCard';
 
 const Card = ({
@@ -24,6 +25,10 @@ const Card = ({
         <StyledFace>
           <Icon style={{ width: '6rem', height: 'auto' }} />
           <Heading>{faceHeading}</Heading>
+          <StyledFaceLinks>
+            <Link href={demoUrl}>Demo</Link>
+            <Link href={githubUrl}>GitHub</Link>
+          </StyledFaceLinks>
         </StyledFace>
         <StyledBack>
           <Heading>{backHeading}</Heading>

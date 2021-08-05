@@ -37,6 +37,11 @@ export const StyledInner = styled.div`
   align-items: center;
   justify-content: center;
 
+  ${({ theme }) => theme.mq.mobile} {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
   ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

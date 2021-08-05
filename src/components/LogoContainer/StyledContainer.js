@@ -18,6 +18,10 @@ export const StyledLogo = styled.span`
   color: ${({ theme }) => theme.colors.black};
   transition: color 0s 0.5s;
 
+  ${({ theme }) => theme.mq.mobile} {
+    margin-left: 3rem;
+  }
+
   ${({ sectionId, theme }) =>
     sectionId !== sectionTypes.home &&
     css`
