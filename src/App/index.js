@@ -114,16 +114,15 @@ const App = () => {
     if (e) {
       delta = Math.sign(e.deltaY);
     } else {
-      if (ts < te - 5) {
+      if (ts < te - 100) {
         delta = -1;
-      } else if (ts > te + 5) {
+      } else if (ts > te + 100) {
         delta = 1;
       } else {
         delta = 0;
       }
     }
-    console.log(ts, te);
-    console.log(delta);
+
     setState((prev) => {
       if (
         prev.position + delta >= 0 &&

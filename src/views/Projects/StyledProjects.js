@@ -24,6 +24,10 @@ export const StyledHeading = styled(Heading)`
   span {
     color: ${({ theme }) => theme.colors.lightBlue};
   }
+
+  ${({ theme }) => theme.mq.mobile} {
+    padding-right: 5rem;
+  }
 `;
 
 export const StyledInner = styled.div`

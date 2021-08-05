@@ -10,13 +10,24 @@ export const StyledAbout = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${({ theme }) => theme.mq.mobile} {
+    padding-top: 15rem;
+    flex-direction: column;
+  }
 `;
 
 export const StyledAboutHeading = styled(Heading)`
   margin-left: ${({ theme }) => theme.margins.leftMargin};
   color: ${({ theme }) => theme.colors.white};
+  z-index: ${({ theme }) => theme.levels.l1};
+
   span {
     color: ${({ theme }) => theme.colors.red};
+  }
+
+  ${({ theme }) => theme.mq.mobile} {
+    padding-right: 10rem;
   }
 `;
 
