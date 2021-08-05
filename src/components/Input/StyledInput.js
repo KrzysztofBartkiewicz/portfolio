@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const sharedStyles = css`
+  width: 100%;
   border: none;
   outline: none;
   font-size: ${({ theme }) => theme.fontSizes.xl};
@@ -12,6 +13,10 @@ const sharedStyles = css`
 export const StyledWrapper = styled.div`
   position: relative;
   margin-bottom: 4rem;
+
+  ${({ theme }) => theme.mq.mobile} {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const StyledLabel = styled.label`
