@@ -25,6 +25,8 @@ const App = () => {
     position: 0,
     isScrolling: false,
     isMenuVisible: false,
+    touchStart: null,
+    touchEnd: null,
   });
 
   useEffect(() => {
@@ -44,9 +46,16 @@ const App = () => {
   }, [state.activeSection]);
 
   useEffect(() => {
+    handleScroll(false, state.touchStart, state.touchEnd);
+  }, [state.touchEnd]);
+
+  useEffect(() => {
     const app = appRef.current;
     sections.current = app.children;
     setState((prev) => ({ ...prev, activeSection: [...sections.current][0] }));
+
+    window.addEventListener('touchstart', handleTouch);
+    window.addEventListener('touchend', (e) => handleTouch(e, true));
 
     window.addEventListener('wheel', _.debounce(handleScroll, 500));
     window.addEventListener('resize', handleResize);
@@ -54,8 +63,21 @@ const App = () => {
     return () => {
       window.removeEventListener('wheel', _.debounce(handleScroll, 500));
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('touchstart', handleTouch);
+      window.removeEventListener('touchend', (e) => handleTouch(e, true));
     };
   }, []);
+
+  const handleTouch = (e, touchEnd) => {
+    if (touchEnd) {
+      setState((prev) => ({ ...prev, touchEnd: e.changedTouches[0].clientY }));
+    } else {
+      setState((prev) => ({
+        ...prev,
+        touchStart: e.changedTouches[0].clientY,
+      }));
+    }
+  };
 
   const handleResize = () => {
     setState((prev) => {
@@ -73,8 +95,20 @@ const App = () => {
     });
   };
 
-  const handleScroll = (e) => {
-    const delta = Math.sign(e.deltaY);
+  const handleScroll = (e, ts, te) => {
+    let delta = 0;
+
+    if (e) {
+      delta = Math.sign(e.deltaY);
+    } else {
+      if (ts < te + 5) {
+        delta = -1;
+      } else if (ts > te - 5) {
+        delta = 1;
+      } else {
+        delta = 0;
+      }
+    }
 
     setState((prev) => {
       if (

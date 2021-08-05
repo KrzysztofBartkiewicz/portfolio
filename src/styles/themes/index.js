@@ -38,6 +38,11 @@ const mainTheme = {
     leftMargin: '10%',
   },
 
+  mq: {
+    tablet: '@media screen and (max-width: 1065px)',
+    mobile: '@media screen and (max-width: 800px)',
+  },
+
   mixins: {
     view: css`
       height: 100vh;

@@ -42,28 +42,28 @@ const Pagination = () => {
       <StyledMovingDot sectionId={sectionId} />
       <StyledDot
         onClick={() => handleGoToPage(sectionTypes.home)}
-        activeSectionId={activeSection.id}
+        activeSectionId={activeSection && activeSection.id}
         sectionId={sectionTypes.home}
       >
         <p>Home</p>
       </StyledDot>
       <StyledDot
         onClick={() => handleGoToPage(sectionTypes.projects)}
-        activeSectionId={activeSection.id}
+        activeSectionId={activeSection && activeSection.id}
         sectionId={sectionTypes.projects}
       >
         <p>Projects</p>
       </StyledDot>
       <StyledDot
         onClick={() => handleGoToPage(sectionTypes.about)}
-        activeSectionId={activeSection.id}
+        activeSectionId={activeSection && activeSection.id}
         sectionId={sectionTypes.about}
       >
         <p>About</p>
       </StyledDot>
       <StyledDot
         onClick={() => handleGoToPage(sectionTypes.contact)}
-        activeSectionId={activeSection.id}
+        activeSectionId={activeSection && activeSection.id}
         sectionId={sectionTypes.contact}
       >
         <p>Contact</p>
