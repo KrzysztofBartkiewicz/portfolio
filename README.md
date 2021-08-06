@@ -1,6 +1,6 @@
 ![cover](github/portfolio.gif)
 
-# Porfolio
+# Portfolio
 [<------------Go to page------------>](https://my-portfolio-1234.netlify.app/)
 
 ## Technologies used in project
