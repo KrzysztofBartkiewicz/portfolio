@@ -28,6 +28,7 @@ const App = () => {
     isMenuAnimating: false,
     touchStart: null,
     touchEnd: null,
+    repos: [],
   });
 
   useEffect(() => {
@@ -57,7 +58,6 @@ const App = () => {
 
     window.addEventListener('touchstart', handleTouch);
     window.addEventListener('touchend', (e) => handleTouch(e, true));
-
     window.addEventListener('wheel', _.debounce(handleScroll, 500));
     window.addEventListener('resize', handleResize);
 
@@ -177,6 +177,7 @@ const App = () => {
     handleGoToPage,
     handleMenuVisibility,
     setIsMenuAnimating,
+    repos: state.repos,
     isMenuVisible: state.isMenuVisible,
     isMenuAnimating: state.isMenuAnimating,
     activeSection: state.activeSection,

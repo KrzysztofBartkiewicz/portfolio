@@ -23,7 +23,7 @@ const AnimatedText = ({
       gsap.fromTo(
         text,
         { y: text.offsetHeight },
-        { y: 0, duration: 0.5, delay: 0.5 }
+        { y: 0, duration: 0.8, delay: 0.8 }
       );
     }
   }, [slideUp, slideDown]);
