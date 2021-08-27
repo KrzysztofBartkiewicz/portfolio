@@ -41,7 +41,6 @@ const Menu = () => {
 
   const handleResize = () => {
     setIsMenuVisibleState((prev) => {
-      console.log(prev);
       if (prev) {
         menuRef.current.style.left = '0';
       } else {

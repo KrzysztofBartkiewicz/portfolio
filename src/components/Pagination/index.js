@@ -1,18 +1,22 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext, useState } from 'react';
 import gsap from 'gsap/gsap-core';
 import AppContext from '../../context/AppContext';
 import { sectionTypes } from '../../helpers';
 import {
   StyledDot,
+  StyledHoverLabel,
   StyledMovingDot,
   StyledPagination,
 } from './StyledPagination';
 
 const Pagination = () => {
   const wrapperRef = useRef(null);
+  const labelRef = useRef(null);
 
-  const { activeSection, handleGoToPage } = useContext(AppContext);
+  const { activeSection, handleGoToPage, isScrolling } = useContext(AppContext);
   const sectionId = activeSection ? activeSection.id : null;
+
+  const [labelText, setLabelText] = useState('');
 
   useEffect(() => {
     const [movingDot, homeDot, projectsDot, aboutDot, contactDot] =
@@ -31,43 +35,61 @@ const Pagination = () => {
       }
     };
 
-    gsap.to(movingDot, {
-      y: getTarget().offsetTop,
-      duration: 1,
-    });
+    const setDot = (duration) =>
+      gsap.to(movingDot, {
+        y: getTarget().offsetTop,
+        x: getTarget().offsetLeft,
+        duration,
+      });
+
+    setDot(1);
+
+    window.addEventListener('resize', () => setDot(0));
+    return window.removeEventListener('resize', () => setDot(0));
   }, [sectionId]);
+
+  useEffect(() => {
+    if (isScrolling) {
+      setLabelText('');
+    }
+  }, [isScrolling]);
+
+  const handleHover = (event, sectionType) => {
+    if (isScrolling) {
+      return;
+    }
+
+    const label = labelRef.current;
+
+    if (event.type === 'mouseenter') {
+      setLabelText(
+        sectionType
+          .split('')
+          .map((l, i) => (i === 0 ? l.toUpperCase() : l))
+          .join('')
+      );
+      gsap.fromTo(label, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    } else {
+      setLabelText('');
+    }
+  };
 
   return (
     <StyledPagination ref={wrapperRef}>
       <StyledMovingDot sectionId={sectionId} />
-      <StyledDot
-        onClick={() => handleGoToPage(sectionTypes.home)}
-        activeSectionId={activeSection && activeSection.id}
-        sectionId={sectionTypes.home}
-      >
-        <p>Home</p>
-      </StyledDot>
-      <StyledDot
-        onClick={() => handleGoToPage(sectionTypes.projects)}
-        activeSectionId={activeSection && activeSection.id}
-        sectionId={sectionTypes.projects}
-      >
-        <p>Projects</p>
-      </StyledDot>
-      <StyledDot
-        onClick={() => handleGoToPage(sectionTypes.about)}
-        activeSectionId={activeSection && activeSection.id}
-        sectionId={sectionTypes.about}
-      >
-        <p>About</p>
-      </StyledDot>
-      <StyledDot
-        onClick={() => handleGoToPage(sectionTypes.contact)}
-        activeSectionId={activeSection && activeSection.id}
-        sectionId={sectionTypes.contact}
-      >
-        <p>Contact</p>
-      </StyledDot>
+      {Object.keys(sectionTypes).map((sectionType) => (
+        <StyledDot
+          key={sectionType}
+          onClick={() => handleGoToPage(sectionType)}
+          activeSectionId={activeSection && sectionId}
+          sectionId={sectionType}
+          onMouseEnter={(event) => handleHover(event, sectionType)}
+          onMouseLeave={(event) => handleHover(event, sectionType)}
+        />
+      ))}
+      <StyledHoverLabel ref={labelRef} sectionId={sectionId}>
+        {labelText}
+      </StyledHoverLabel>
     </StyledPagination>
   );
 };

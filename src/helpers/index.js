@@ -12,8 +12,8 @@ export const buttonTypes = {
 export const sectionTypes = {
   home: 'home',
   projects: 'projects',
-  contact: 'contact',
   about: 'about',
+  contact: 'contact',
 };
 
 export const contactData = {

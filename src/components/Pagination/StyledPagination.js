@@ -3,11 +3,10 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 8rem;
-  bottom: -5rem;
-  transform: rotate(-90deg);
+  left: 5rem;
+  bottom: 3rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   z-index: ${({ theme }) => theme.levels.l1};
 `;
 
@@ -16,41 +15,27 @@ const dot = css`
   height: 1.5rem;
   border-radius: 50%;
   border: none;
-
-  &:hover p {
-    opacity: 1;
-    visibility: visible;
-  }
+  margin-right: 2.5rem;
 `;
 
 export const StyledDot = styled.button`
   ${dot}
   background: ${({ theme }) => theme.colors.grey};
   position: relative;
+`;
 
-  &:not(:last-child) {
-    margin-bottom: 3rem;
-  }
-
-  & p {
-    visibility: none;
-    opacity: 0;
-    position: absolute;
-    left: 3rem;
-    top: 0;
-    font-size: ${({ theme }) => theme.fontSizes.l};
-    pointer-events: none;
-    transition: opacity 1s;
-
-    color: ${({ activeSectionId, theme }) =>
-      activeSectionId !== sectionTypes.home
-        ? theme.colors.white
-        : theme.colors.black};
-  }
+export const StyledHoverLabel = styled.p`
+  line-height: 1.2;
+  height: 1.5rem;
+  display: block;
+  font-size: ${({ theme }) => theme.fontSizes.l};
+  color: ${({ sectionId, theme }) =>
+    sectionId === 'home' ? theme.colors.black : theme.colors.white};
 `;
 
 export const StyledMovingDot = styled.div`
   ${dot}
+  margin: 0;
   transition: background-color 1s;
   z-index: ${({ theme }) => theme.levels.l1 + 10};
 
