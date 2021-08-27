@@ -6,6 +6,7 @@ import About from '../views/About';
 import Projects from '../views/Projects';
 import Pagination from '../components/Pagination';
 import gsap from 'gsap';
+import { Power2 } from 'gsap/src/gsap-core';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import _ from 'lodash';
 import { sectionTypes } from '../helpers';
@@ -144,6 +145,7 @@ const App = () => {
     scrollAnim.current.to(window, {
       scrollTo: { y: state.activeSection, autoKill: false },
       duration: 1,
+      ease: Power2.easeInOut,
       onStart: () => setState((prev) => ({ ...prev, isScrolling: true })),
       onComplete: () => setState((prev) => ({ ...prev, isScrolling: false })),
     });

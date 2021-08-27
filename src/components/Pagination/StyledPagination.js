@@ -37,7 +37,7 @@ export const StyledDot = styled.button`
     opacity: 0;
     position: absolute;
     left: 3rem;
-    top: -7%;
+    top: 0;
     font-size: ${({ theme }) => theme.fontSizes.l};
     pointer-events: none;
     transition: opacity 1s;

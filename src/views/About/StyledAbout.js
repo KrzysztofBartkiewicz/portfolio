@@ -5,8 +5,10 @@ import Heading from '../../components/Heading';
 
 export const StyledAbout = styled.section`
   ${({ theme }) => theme.mixins.view}
-  background: url(${bg}) center / cover no-repeat
+
+  background: linear-gradient(rgba(14, 42, 71, 0.4), rgba(14, 42, 71, 0.4)),  url(${bg}) center / cover no-repeat
     ${({ theme }) => theme.colors.white};
+
   display: flex;
   align-items: center;
   justify-content: space-between;
