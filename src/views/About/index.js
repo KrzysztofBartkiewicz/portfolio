@@ -16,9 +16,7 @@ const About = () => {
 
   return (
     <StyledAbout id={sectionTypes.about}>
-      <SectionHeading sectionType={sectionTypes.about} sectionId={sectionId}>
-        About
-      </SectionHeading>
+      <SectionHeading sectionType={sectionTypes.about}>About</SectionHeading>
       <StyledAboutHeading headingType="h1">
         <AnimatedText
           slideUp={sectionId !== sectionTypes.about}

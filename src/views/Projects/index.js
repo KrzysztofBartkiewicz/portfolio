@@ -12,7 +12,7 @@ const Projects = () => {
 
   return (
     <StyledProjects id={sectionTypes.projects}>
-      <SectionHeading sectionType={sectionTypes.projects} sectionId={sectionId}>
+      <SectionHeading sectionType={sectionTypes.projects}>
         Projects
       </SectionHeading>
       <StyledHeading headingType="h1">

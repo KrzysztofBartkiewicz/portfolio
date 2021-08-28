@@ -29,7 +29,6 @@ const App = () => {
     isMenuAnimating: false,
     touchStart: null,
     touchEnd: null,
-    repos: [],
   });
 
   useEffect(() => {
@@ -192,6 +191,7 @@ const App = () => {
       <OnloadAnimation />
       <LogoContainer />
       <Pagination />
+      {/* <SectionHeading /> */}
 
       <div ref={appRef}>
         <Home />

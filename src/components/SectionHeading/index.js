@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AnimatedText from '../../components/AnimatedText';
+import AppContext from '../../context/AppContext';
 import { StyledHeading } from './StyledSectionHeading';
 
-const SectionHeading = ({ sectionType, children, sectionId }) => {
+const SectionHeading = ({ sectionType, children }) => {
+  const { activeSection } = useContext(AppContext);
+  const sectionId = activeSection ? activeSection.id : null;
+
   return (
     <StyledHeading sectionId={sectionId}>
       <AnimatedText

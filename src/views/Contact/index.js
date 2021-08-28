@@ -60,7 +60,7 @@ const Contact = () => {
 
   return (
     <StyledContact id={sectionTypes.contact}>
-      <SectionHeading sectionType={sectionTypes.contact} sectionId={sectionId}>
+      <SectionHeading sectionType={sectionTypes.contact}>
         Contact
       </SectionHeading>
 

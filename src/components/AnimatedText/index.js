@@ -16,15 +16,22 @@ const AnimatedText = ({
     const wrapper = wrapperRef.current;
     const text = wrapper.children[0];
 
+    const tl = gsap.timeline();
+
     if (slideUp) {
-      gsap.fromTo(text, { y: 0 }, { y: -text.offsetHeight - 3, duration: 0.5 });
+      tl.set(text, { y: 0 })
+        .to(text, {
+          y: -text.offsetHeight - 3,
+          duration: 0.5,
+        })
+        .set(text, { autoAlpha: 0 });
     }
     if (slideDown) {
-      gsap.fromTo(
-        text,
-        { y: text.offsetHeight },
-        { y: 0, duration: 0.8, delay: 0.8 }
-      );
+      tl.set(text, { y: text.offsetHeight, autoAlpha: 1 }).to(text, {
+        y: 0,
+        duration: 0.8,
+        delay: 0.8,
+      });
     }
   }, [slideUp, slideDown]);
 

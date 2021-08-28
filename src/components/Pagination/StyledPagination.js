@@ -3,7 +3,7 @@ import { sectionTypes } from '../../helpers';
 
 export const StyledPagination = styled.div`
   position: fixed;
-  left: 5rem;
+  left: 5%;
   bottom: 3rem;
   display: flex;
   align-items: center;
