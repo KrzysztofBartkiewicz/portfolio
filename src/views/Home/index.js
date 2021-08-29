@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
@@ -21,7 +21,13 @@ const Home = () => {
   const { handleGoToPage, activeSection } = useContext(AppContext);
   const homeId = sectionTypes.home;
 
-  const sectionId = activeSection ? activeSection.id : null;
+  const [sectionId, setSectionId] = useState(homeId);
+
+  useEffect(() => {
+    if (activeSection) {
+      setSectionId(activeSection.id);
+    }
+  }, [activeSection]);
 
   const renderInnerWrapper = () => (
     <StyledInner>
