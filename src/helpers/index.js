@@ -39,7 +39,7 @@ export const projectsData = [
     description:
       'Admin panel made in React. Uses firestore database and firebase authorisation. Includes mailbox based on Gmail API, charts, weather widget etc.',
     icon: PanelIcon,
-    demoUrl: '',
+    demoUrl: 'https://react-admin-panel-portfolio.netlify.app',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-admin-panel',
   },
   {
