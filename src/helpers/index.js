@@ -29,7 +29,7 @@ export const projectsData = [
   {
     title: 'React shop',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
+      'Fake React shop uses same database as Admin panel app. Provides basic functionalities such as shopping cart, filtering by several categories and searching products.',
     icon: ShopIcon,
     demoUrl: 'https://react-shop-portfolio.netlify.app',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-shop',
@@ -37,15 +37,14 @@ export const projectsData = [
   {
     title: 'Admin panel',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
+      'Admin panel made in React. Uses firestore database and firebase authorisation. Includes mailbox based on Gmail API, charts, weather widget etc.',
     icon: PanelIcon,
     demoUrl: '',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-admin-panel',
   },
   {
     title: 'Movie app',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
+    description: 'Simple app fetching and presenting movie data for user.',
     icon: MovieIcon,
     demoUrl: 'https://movie-react-app-portfolio.netlify.app',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/movie-app',
@@ -53,8 +52,7 @@ export const projectsData = [
 
   {
     title: 'Smart home',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar felis in tellus gravida, ac hendrerit mauris sollicitudin. Nullam ante nisi',
+    description: 'Simple app simulating contol of home devices',
     icon: HomeIcon,
     demoUrl: 'https://smart-home-portfolio.netlify.app',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/smart-home-app',
