@@ -3,6 +3,46 @@ import { ReactComponent as MovieIcon } from '../assets/icons/movie.svg';
 import { ReactComponent as PanelIcon } from '../assets/icons/admin.svg';
 import { ReactComponent as HomeIcon } from '../assets/icons/house.svg';
 
+import npmLogo from '../assets/icons/npm.svg';
+import sassLogo from '../assets/icons/sass.svg';
+import css3Logo from '../assets/icons/css3.svg';
+import gitLogo from '../assets/icons/git.svg';
+import jsLogo from '../assets/icons/js.svg';
+import reduxLogo from '../assets/icons/redux.svg';
+
+export const spiningElements = [
+  {
+    size: 16,
+    duration: 9,
+    icon: reduxLogo,
+  },
+  {
+    size: 26,
+    duration: 11,
+    icon: npmLogo,
+  },
+  {
+    size: 36,
+    duration: 13,
+    icon: sassLogo,
+  },
+  {
+    size: 49,
+    duration: 17,
+    icon: css3Logo,
+  },
+  {
+    size: 67,
+    duration: 20,
+    icon: gitLogo,
+  },
+  {
+    size: 81,
+    duration: 25,
+    icon: jsLogo,
+  },
+];
+
 export const buttonTypes = {
   text: 'text',
   hamburger: 'hamburger',
@@ -27,20 +67,20 @@ export const portfolioGitHubUrl = `https://github.com/KrzysztofBartkiewicz/portf
 
 export const projectsData = [
   {
-    title: 'React shop',
-    description:
-      'Fake React shop uses same database as Admin panel app. Provides basic functionalities such as shopping cart, filtering by several categories and searching products.',
-    icon: ShopIcon,
-    demoUrl: 'https://react-shop-portfolio.netlify.app',
-    githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-shop',
-  },
-  {
     title: 'Admin panel',
     description:
       'Admin panel made in React. Uses firestore database and firebase authorisation. Includes mailbox based on Gmail API, charts, weather widget etc.',
     icon: PanelIcon,
     demoUrl: 'https://react-admin-panel-portfolio.netlify.app',
     githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-admin-panel',
+  },
+  {
+    title: 'React shop',
+    description:
+      'Fake React shop uses same database as Admin panel app. Provides basic functionalities such as shopping cart, filtering by several categories and searching products.',
+    icon: ShopIcon,
+    demoUrl: 'https://react-shop-portfolio.netlify.app',
+    githubUrl: 'https://github.com/KrzysztofBartkiewicz/react-shop',
   },
   {
     title: 'Movie app',

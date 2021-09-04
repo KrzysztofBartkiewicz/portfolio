@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useContext } from 'react';
+import Button from '../Button';
+import AppContext from '../../context/AppContext';
 import gsap from 'gsap';
 import { buttonTypes } from '../../helpers';
-import Button from '../Button';
 import { StyledLogoContainer, StyledLogo } from './StyledContainer';
-import AppContext from '../../context/AppContext';
 
 const LogoContainer = () => {
   const containerRef = useRef(null);

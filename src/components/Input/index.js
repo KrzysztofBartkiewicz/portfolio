@@ -1,5 +1,5 @@
-import gsap from 'gsap/gsap-core';
 import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap/gsap-core';
 import {
   StyledInput,
   StyledLabel,
@@ -18,9 +18,9 @@ const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
   useEffect(() => {
     const lablelEl = labelRef.current;
     const inputEl = inputRef.current;
+    const tl = gsap.timeline();
 
     if (isFocused) {
-      const tl = gsap.timeline();
       tl.to(lablelEl, { scale: 0, xPercent: 100, yPercent: -40, duration: 0.1 })
         .set(lablelEl, {
           scale: 0.5,
@@ -30,7 +30,6 @@ const Input = ({ value, onChangeFn, label, type, textArea, required }) => {
         })
         .to(lablelEl, { xPercent: -20, duration: 0.1 });
     } else if (inputEl.value.length === 0) {
-      const tl = gsap.timeline();
       tl.set(lablelEl, { scale: 1, xPercent: 0, yPercent: 0, opacity: 0.3 });
     }
   }, [isFocused]);

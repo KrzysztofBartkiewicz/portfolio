@@ -76,10 +76,6 @@ export const StyledAside = styled.aside`
   transform: translateY(-50%);
   writing-mode: vertical-lr;
 
-  ${({ theme }) => theme.mq.mobile} {
-    right: 2rem;
-  }
-
   ${({ theme }) => css`
     font-size: ${theme.fontSizes.l};
     font-weight: ${theme.fontWeights.bold};
@@ -88,5 +84,9 @@ export const StyledAside = styled.aside`
 
   & *:not(:last-child) {
     margin-bottom: 4rem;
+  }
+
+  ${({ theme }) => theme.mq.mobile} {
+    right: 2rem;
   }
 `;

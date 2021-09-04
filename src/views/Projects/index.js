@@ -10,8 +10,8 @@ const Projects = () => {
   const { activeSection } = useContext(AppContext);
   const sectionId = activeSection ? activeSection.id : null;
 
-  return (
-    <StyledProjects id={sectionTypes.projects}>
+  const renderHeading = () => (
+    <>
       <SectionHeading sectionType={sectionTypes.projects}>
         Projects
       </SectionHeading>
@@ -38,24 +38,34 @@ const Projects = () => {
           like to work with the most.
         </AnimatedText>
       </StyledHeading>
-      <StyledInner>
-        <ul>
-          {projectsData.map(
-            ({ title, description, icon, demoUrl, githubUrl }) => (
-              <li key={title}>
-                <Card
-                  icon={icon}
-                  faceHeading={title}
-                  backHeading="About app"
-                  description={description}
-                  demoUrl={demoUrl}
-                  githubUrl={githubUrl}
-                />
-              </li>
-            )
-          )}
-        </ul>
-      </StyledInner>
+    </>
+  );
+
+  const renderAppsWrapper = () => (
+    <StyledInner>
+      <ul>
+        {projectsData.map(
+          ({ title, description, icon, demoUrl, githubUrl }) => (
+            <li key={title}>
+              <Card
+                icon={icon}
+                faceHeading={title}
+                backHeading="About app"
+                description={description}
+                demoUrl={demoUrl}
+                githubUrl={githubUrl}
+              />
+            </li>
+          )
+        )}
+      </ul>
+    </StyledInner>
+  );
+
+  return (
+    <StyledProjects id={sectionTypes.projects}>
+      {renderHeading()}
+      {renderAppsWrapper()}
     </StyledProjects>
   );
 };

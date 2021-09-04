@@ -45,7 +45,7 @@ const Pagination = () => {
     setDot(1);
 
     window.addEventListener('resize', () => setDot(0));
-    return window.removeEventListener('resize', () => setDot(0));
+    return () => window.removeEventListener('resize', () => setDot(0));
   }, [sectionId]);
 
   useEffect(() => {

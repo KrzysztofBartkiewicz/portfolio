@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import AppContext from '../context/AppContext';
 import Contact from '../views/Contact';
 import Home from '../views/Home';
 import About from '../views/About';
 import Projects from '../views/Projects';
 import Pagination from '../components/Pagination';
+import Menu from '../components/Menu';
+import OnloadAnimation from '../components/OnloadAnimation';
+import LogoContainer from '../components/LogoContainer';
+import AppContext from '../context/AppContext';
 import gsap from 'gsap';
 import { Power2 } from 'gsap/src/gsap-core';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import _ from 'lodash';
 import { sectionTypes } from '../helpers';
-import LogoContainer from '../components/LogoContainer';
-import OnloadAnimation from '../components/OnloadAnimation';
-import Menu from '../components/Menu';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -178,7 +178,6 @@ const App = () => {
     handleGoToPage,
     handleMenuVisibility,
     setIsMenuAnimating,
-    repos: state.repos,
     isMenuVisible: state.isMenuVisible,
     isMenuAnimating: state.isMenuAnimating,
     activeSection: state.activeSection,
@@ -191,7 +190,6 @@ const App = () => {
       <OnloadAnimation />
       <LogoContainer />
       <Pagination />
-      {/* <SectionHeading /> */}
 
       <div ref={appRef}>
         <Home />

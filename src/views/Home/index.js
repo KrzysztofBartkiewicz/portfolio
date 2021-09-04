@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import AppContext from '../../context/AppContext';
 import Heading from '../../components/Heading';
 import AnimatedText from '../../components/AnimatedText';
 import Button from '../../components/Button';
 import Link from '../../components/Link';
 import ScrollInfo from '../../components/ScrollInfo';
+import AppContext from '../../context/AppContext';
 import { buttonTypes, sectionTypes, contactData } from '../../helpers';
 import {
   StyledBottomWrapper,
@@ -47,7 +47,6 @@ const Home = () => {
           Krzysztof Bartkiewicz.
         </AnimatedText>
       </Heading>
-
       <StyledAboutMe
         slideUp={sectionId !== homeId}
         slideDown={sectionId === homeId}
@@ -91,18 +90,21 @@ const Home = () => {
     </StyledBottomWrapper>
   );
 
+  const renderAside = () => (
+    <StyledAside>
+      <Link href={contactData.githubUrl} color="black">
+        Gihub
+      </Link>
+      <Link href={contactData.linkedinUrl} color="black">
+        LinkedIn
+      </Link>
+    </StyledAside>
+  );
+
   return (
     <StyledHome id={homeId}>
       {renderInnerWrapper()}
-
-      <StyledAside>
-        <Link href={contactData.githubUrl} color="black">
-          Gihub
-        </Link>
-        <Link href={contactData.linkedinUrl} color="black">
-          LinkedIn
-        </Link>
-      </StyledAside>
+      {renderAside()}
       {renderBottomWrapper()}
     </StyledHome>
   );

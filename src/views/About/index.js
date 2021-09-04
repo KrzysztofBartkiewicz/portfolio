@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import AppContext from '../../context/AppContext';
 import SectionHeading from '../../components/SectionHeading';
+import SpiningAnim from '../../components/SpiningAnim';
 import AnimatedText from '../../components/AnimatedText';
+import AppContext from '../../context/AppContext';
 import { sectionTypes } from '../../helpers';
 import {
   StyledAbout,
   StyledAboutHeading,
   StyledSubHeading,
 } from './StyledAbout';
-import SpiningAnim from '../../components/SpiningAnim';
 
 const About = () => {
   const { activeSection } = useContext(AppContext);
@@ -45,7 +45,6 @@ const About = () => {
           which I learned lately.
         </StyledSubHeading>
       </StyledAboutHeading>
-
       <SpiningAnim />
     </StyledAbout>
   );

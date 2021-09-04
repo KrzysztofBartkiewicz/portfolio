@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import Link from '../Link';
+import gsap from 'gsap';
 import { portfolioGitHubUrl } from '../../helpers';
 import {
   StyledLinkWrapper,
