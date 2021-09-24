@@ -11,7 +11,7 @@ export const StyledLogoContainer = styled.div`
 `;
 
 export const StyledLogo = styled.span`
-  font-family: 'Pacifico', cursive;
+  font-family: cooper-black-std, serif;
   font-size: 5rem;
   display: block;
   margin-left: 11rem;
