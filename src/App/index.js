@@ -9,7 +9,7 @@ import OnloadAnimation from '../components/OnloadAnimation';
 import LogoContainer from '../components/LogoContainer';
 import AppContext from '../context/AppContext';
 import gsap from 'gsap';
-import { Power2 } from 'gsap/src/gsap-core';
+import { Power0 } from 'gsap/src/gsap-core';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import _ from 'lodash';
 import { sectionTypes } from '../helpers';
@@ -144,7 +144,7 @@ const App = () => {
     scrollAnim.current.to(window, {
       scrollTo: { y: state.activeSection, autoKill: false },
       duration: 1,
-      ease: Power2.easeInOut,
+      ease: Power0.easeNone,
       onStart: () => setState((prev) => ({ ...prev, isScrolling: true })),
       onComplete: () => setState((prev) => ({ ...prev, isScrolling: false })),
     });
