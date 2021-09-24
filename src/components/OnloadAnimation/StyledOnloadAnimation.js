@@ -11,7 +11,7 @@ export const StyledAnimation = styled.div`
   justify-content: center;
 
   span {
-    font-family: 'Dokdo', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 8rem;
     display: none;
   }
