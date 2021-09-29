@@ -24,35 +24,37 @@ export const StyledAboutHeading = styled(Heading)`
   color: ${({ theme }) => theme.colors.white};
   z-index: ${({ theme }) => theme.levels.l1};
 
-  span {
-    color: ${({ theme }) => theme.colors.red};
-  }
-
   ${({ theme }) => theme.mq.mobile} {
     padding-right: 10rem;
   }
 `;
 
-export const StyledSubHeading = styled(AnimatedText)`
-  span {
-    &:nth-child(1) {
-      color: ${({ theme }) => theme.colors.lightBlue};
-    }
+export const StyledDot = styled.span`
+  color: ${({ theme }) => theme.colors.red};
+`;
 
-    &:nth-child(3) {
-      color: ${({ theme }) => theme.colors.red};
-    }
+export const StyledSubHeading = styled(AnimatedText)``;
 
-    &:nth-child(4) {
-      color: ${({ theme }) => theme.colors.yellow};
-    }
+export const StyledReactSpan = styled.span`
+  color: ${({ theme }) => theme.colors.brand.react};
+`;
 
-    &:nth-child(6) {
-      color: ${({ theme }) => theme.colors.red};
-    }
+export const StyledSassSpan = styled.span`
+  color: ${({ theme }) => theme.colors.brand.sass};
+`;
 
-    &:nth-child(8) {
-      color: ${({ theme }) => theme.colors.blue};
-    }
-  }
+export const StyledTSSpan = styled.span`
+  color: ${({ theme }) => theme.colors.brand.ts};
+`;
+
+export const StyledES6Span = styled.span`
+  color: ${({ theme }) => theme.colors.yellow};
+`;
+
+export const StyledGitSpan = styled.span`
+  color: ${({ theme }) => theme.colors.brand.git};
+`;
+
+export const StyledReduxSpan = styled.span`
+  color: ${({ theme }) => theme.colors.brand.redux};
 `;

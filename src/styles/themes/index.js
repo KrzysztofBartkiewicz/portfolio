@@ -11,6 +11,16 @@ const mainTheme = {
     darkGrey: '#444444',
     lightBlack: '#2b2b2b',
     red: '#e73635',
+
+    brand: {
+      ts: '#3178c6',
+      redux: '#7248B6',
+      git: '#F05133',
+      sass: '#CD6799',
+      npm: '#CB3837',
+      css: '#2965f1',
+      react: '#61DAFB',
+    },
   },
 
   fontSizes: {

@@ -36,8 +36,8 @@ const SpiningAnim = () => {
   return (
     <StyledWrapper ref={wrapperRef}>
       <StyledReactLogo data-duration={4} src={reactLogo} alt="react icon" />
-      {spiningElements.map(({ size, duration, icon }) => (
-        <StyledOrbit key={size} size={size} data-duration={duration}>
+      {spiningElements.map(({ size, duration, icon }, i) => (
+        <StyledOrbit key={`${icon}${i}`} size={size} data-duration={duration}>
           <StyledIcon src={icon} alt="spining icon" />
         </StyledOrbit>
       ))}

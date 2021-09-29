@@ -7,7 +7,14 @@ import { sectionTypes } from '../../helpers';
 import {
   StyledAbout,
   StyledAboutHeading,
+  StyledES6Span,
+  StyledGitSpan,
+  StyledReactSpan,
+  StyledReduxSpan,
+  StyledSassSpan,
   StyledSubHeading,
+  StyledDot,
+  StyledTSSpan,
 } from './StyledAbout';
 
 const About = () => {
@@ -22,7 +29,7 @@ const About = () => {
           slideUp={sectionId !== sectionTypes.about}
           slideDown={sectionId === sectionTypes.about}
         >
-          About me<span>.</span>
+          About me<StyledDot>.</StyledDot>
         </AnimatedText>
         <StyledSubHeading
           slideUp={sectionId !== sectionTypes.about}
@@ -30,19 +37,19 @@ const About = () => {
           size="l"
           weight="bold"
         >
-          I specialise in creating apps in <span>React</span>. I like style them
-          using Styled Components
+          I specialise in creating apps in{' '}
+          <StyledReactSpan>React</StyledReactSpan>. I like style them using
+          Styled Components
           <br />
-          but <span>Sass</span> and BEM methodology are no secret for me. I know{' '}
-          <span>ES6</span> standard
+          but <StyledSassSpan>Sass</StyledSassSpan> and BEM methodology are no
+          secret for me. I know <StyledES6Span>ES6</StyledES6Span> standard
           <br />
           and use it in every project. For tracking changes I use{' '}
-          <span>GIT</span> which i understand
+          <StyledGitSpan>GIT</StyledGitSpan> which i understand
           <br />
-          on basic level. I love to learn new things like <span>
-            Redux
-          </span>{' '}
-          which I learned lately.
+          on basic level. I love to learn new things like{' '}
+          <StyledReduxSpan>Redux</StyledReduxSpan> or{' '}
+          <StyledTSSpan>TypeScript</StyledTSSpan> which I have learned lately.
         </StyledSubHeading>
       </StyledAboutHeading>
       <SpiningAnim />

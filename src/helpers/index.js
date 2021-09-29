@@ -3,7 +3,7 @@ import { ReactComponent as MovieIcon } from '../assets/icons/movie.svg';
 import { ReactComponent as PanelIcon } from '../assets/icons/admin.svg';
 import { ReactComponent as HomeIcon } from '../assets/icons/house.svg';
 
-import npmLogo from '../assets/icons/npm.svg';
+import tsLogo from '../assets/icons/ts.svg';
 import sassLogo from '../assets/icons/sass.svg';
 import css3Logo from '../assets/icons/css3.svg';
 import gitLogo from '../assets/icons/git.svg';
@@ -12,14 +12,9 @@ import reduxLogo from '../assets/icons/redux.svg';
 
 export const spiningElements = [
   {
-    size: 16,
-    duration: 9,
-    icon: reduxLogo,
-  },
-  {
-    size: 26,
-    duration: 11,
-    icon: npmLogo,
+    size: 67,
+    duration: 20,
+    icon: gitLogo,
   },
   {
     size: 36,
@@ -32,14 +27,19 @@ export const spiningElements = [
     icon: css3Logo,
   },
   {
-    size: 67,
-    duration: 20,
-    icon: gitLogo,
-  },
-  {
     size: 81,
     duration: 25,
     icon: jsLogo,
+  },
+  {
+    size: 26,
+    duration: 11,
+    icon: tsLogo,
+  },
+  {
+    size: 16,
+    duration: 9,
+    icon: reduxLogo,
   },
 ];
 
