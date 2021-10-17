@@ -10,7 +10,7 @@ export const StyledContact = styled.section`
   display: flex;
 
   ${({ theme }) => theme.mq.mobile} {
-    padding-top: 10rem;
+    padding-top: 15rem;
     flex-direction: column;
   }
 `;
