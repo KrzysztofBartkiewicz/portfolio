@@ -11,7 +11,7 @@ export const StyledLogoContainer = styled.div`
 `;
 
 export const StyledLogo = styled.span`
-  font-family: cooper-black-std, serif;
+  font-family: 'Rock Salt', cursive;
   font-size: 5rem;
   display: block;
   margin-left: 11rem;

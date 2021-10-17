@@ -11,7 +11,7 @@ export const StyledAnimation = styled.div`
   justify-content: center;
 
   span {
-    font-family: cooper-black-std, serif;
+    font-family: 'Rock Salt', cursive;
     font-size: 8rem;
     display: none;
   }

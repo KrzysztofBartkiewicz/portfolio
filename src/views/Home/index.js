@@ -53,7 +53,7 @@ const Home = () => {
         size="l"
         weight="bold"
       >
-        I'm aspiring frontend developer based in Olsztyn, Poland
+        Frontend developer based in Kraków, Poland
       </StyledAboutMe>
       <ScrollInfo />
     </StyledInner>
